@@ -30,14 +30,14 @@ export default function SharedLayout({ children }: { children: ReactNode }) {
       <div className="flex min-h-screen">
         <Sidebar mobileOpen={mobileNavOpen} onMobileClose={() => setMobileNavOpen(false)} />
 
-        <div className="flex min-h-screen flex-1 flex-col">
+        <div className="flex min-h-screen min-w-0 flex-1 flex-col">
           <TopNav onMenuToggle={() => setMobileNavOpen((open) => !open)} />
 
-          <div className="px-4 pb-8 pt-4 sm:px-6 lg:px-8">
+          <div className="min-w-0 px-4 pb-8 pt-4 sm:px-6 lg:px-8">
             <div className="mb-6">
               <Breadcrumbs items={breadcrumbItems} />
             </div>
-            <main>{children}</main>
+            <main className="min-w-0">{children}</main>
           </div>
         </div>
       </div>

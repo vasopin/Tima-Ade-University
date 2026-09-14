@@ -76,7 +76,7 @@ export default function PublicLayout({ children, title, description }: PublicLay
             </a>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 md:justify-end">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-rose-500/10 px-2.5 py-0.5 text-[11px] font-semibold text-rose-400 border border-rose-500/20">
               <Sparkles className="h-3 w-3" /> Admissions 2026-2027 Open
             </span>

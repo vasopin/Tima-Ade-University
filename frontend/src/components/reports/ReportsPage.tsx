@@ -109,7 +109,7 @@ export default function ReportsPage() {
             <CardDescription>List and basic stats — filter by university/department</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="flex items-center gap-3 mb-4">
+            <div className="mb-4 flex flex-wrap items-center gap-3">
               <label className="text-sm">From</label>
               <input type="date" value={from} onChange={(e) => setFrom(e.target.value)} className="rounded border px-2 py-1" />
               <label className="text-sm">To</label>

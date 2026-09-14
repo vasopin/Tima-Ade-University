@@ -8,7 +8,7 @@ export default function TopNav({ onMenuToggle }: { onMenuToggle: () => void }) {
   const { user } = useAuth()
 
   return (
-    <header className="flex h-20 items-center justify-between border-b border-slate-200 bg-white/90 px-4 backdrop-blur-sm dark:border-slate-800 dark:bg-slate-950/80 sm:px-6">
+    <header className="flex min-h-20 flex-wrap items-center justify-between gap-3 border-b border-slate-200 bg-white/90 px-4 py-3 backdrop-blur-sm dark:border-slate-800 dark:bg-slate-950/80 sm:px-6">
       <div className="flex items-center gap-3">
         <button type="button" onClick={onMenuToggle} aria-label="Open navigation menu" className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 lg:hidden dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200">
           <Menu className="h-4 w-4" />
@@ -24,9 +24,9 @@ export default function TopNav({ onMenuToggle }: { onMenuToggle: () => void }) {
         </div>
       </div>
 
-      <div className="flex items-center gap-3">
-        <button className="inline-flex h-10 items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 text-sm font-medium text-slate-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200">
-          <span>Quick add</span>
+      <div className="flex min-w-0 flex-wrap items-center justify-end gap-2 sm:gap-3">
+        <button className="inline-flex h-10 items-center gap-2 rounded-xl border border-slate-200 bg-white px-2 text-sm font-medium text-slate-700 sm:px-3 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200">
+          <span className="hidden sm:inline">Quick add</span>
         </button>
 
         <NotificationDropdown />
