@@ -1,0 +1,26 @@
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  async rewrites() {
+    return [
+      {
+        source: '/api/:path*',
+        destination: 'http://localhost:8000/api/:path*',
+      },
+      {
+        source: '/sanctum/:path*',
+        destination: 'http://localhost:8000/sanctum/:path*',
+      },
+      {
+        source: '/login',
+        destination: 'http://localhost:8000/login',
+      },
+      {
+        source: '/logout',
+        destination: 'http://localhost:8000/logout',
+      },
+    ]
+  },
+}
+
+module.exports = nextConfig

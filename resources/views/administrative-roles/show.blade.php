@@ -1,0 +1,4 @@
+@extends('layouts.app')
+@section('title', $roleModel->name . ' Details')
+@section('breadcrumb')<li class="breadcrumb-item"><a href="{{ route($role . '.index') }}">{{ $roleModel->name }} Management</a></li><li class="breadcrumb-item active">Details</li>@endsection
+@section('content')<div class="card border-0 shadow-sm rounded-4"><div class="card-body p-4"><h3 class="fw-bold">{{ $user->name }}</h3><p class="text-muted">{{ $roleModel->name }}</p><dl class="row"><dt class="col-sm-3">Email</dt><dd class="col-sm-9">{{ $user->email }}</dd><dt class="col-sm-3">Phone</dt><dd class="col-sm-9">{{ $user->phone ?: '—' }}</dd><dt class="col-sm-3">Status</dt><dd class="col-sm-9">{{ ucfirst($user->status ?: 'active') }}</dd></dl><a href="{{ route($role . '.edit', [$role => $role, 'user' => $user]) }}" class="btn btn-primary">Edit {{ $roleModel->name }}</a></div></div>@endsection

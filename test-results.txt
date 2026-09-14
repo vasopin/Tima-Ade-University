@@ -1,0 +1,26 @@
+
+   PASS  Tests\Feature\RoleAccessTest
+  Γ£ô unauthenticated user cannot access protected dashboard               8.63s  
+  Γ£ô unauthenticated user cannot access students management               0.18s  
+  Γ£ô admin user can access dashboard and modules                          3.26s  
+  Γ£ô api user endpoint returns authenticated role                         1.26s  
+  Γ£ô api user endpoint returns only the authenticated students id         0.96s  
+  Γ£ô admission portal allows only administrators and staff                0.55s  
+
+   PASS  Tests\Feature\LiveClassAccessTest
+  Γ£ô teacher live class page renders assigned classes                     0.27s  
+  Γ£ô teacher live class page only lists their assigned course options     0.11s  
+  Γ£ô teacher can create a live class for their course                     0.12s  
+  Γ£ô authorized teacher can go live from scheduled class                  0.12s  
+  Γ£ô create and schedule are separate actions                             0.10s  
+  Γ£ô ended class cannot be started again                                  3.60s  
+  Γ£ô student cannot create live classes                                   0.09s  
+  Γ£ô enrolled student can see live class and non enrolled user cannot joΓÇª 1.16s  
+  Γ£ô teacher can end live class and student cannot end it                 0.13s  
+  Γ£ô teacher can moderate participants and student cannot                 0.10s  
+  Γ£ô student can leave without ending class and cannot rejoin after end   0.13s  
+  Γ£ô teacher can update permissions and staff cannot monitor              0.18s  
+
+  Tests:    18 passed (72 assertions)
+  Duration: 21.88s
+

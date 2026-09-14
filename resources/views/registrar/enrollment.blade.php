@@ -1,0 +1,9 @@
+@extends('layouts.app')
+
+@section('title', 'Enrollment Management')
+
+@section('content')
+<div class="container-fluid px-4 py-4 bg-light min-vh-100"><div class="mb-4"><p class="text-uppercase text-muted small fw-semibold mb-1">Registrar workspace</p><h1 class="h2 mb-1">Enrollment management</h1><p class="text-muted mb-0">Review the complete enrollment history and status transitions.</p></div>
+<section class="card border-0 shadow-sm"><div class="card-body"><form class="row g-2 mb-3"><div class="col-md-4"><select class="form-select" name="status"><option value="">All statuses</option>@foreach(\App\Models\Enrollment::STATUSES as $status)<option value="{{ $status }}" @selected(request('status') === $status)>{{ ucfirst($status) }}</option>@endforeach</select></div><div class="col-md-2"><button class="btn btn-outline-primary">Filter</button></div></form>
+<div class="table-responsive"><table class="table align-middle"><thead><tr><th>Student</th><th>Course</th><th>Term</th><th>Status</th><th>Changed</th><th>Reason</th></tr></thead><tbody>@forelse($enrollments ?? [] as $enrollment)<tr><td>{{ $enrollment->student->user->name ?? $enrollment->student->admission_number }}</td><td>{{ $enrollment->courseSection->course->code ?? '—' }} · {{ $enrollment->courseSection->code ?? '—' }}</td><td>{{ $enrollment->courseSection->term->name ?? '—' }}</td><td><span class="badge text-bg-light border">{{ ucfirst($enrollment->status) }}</span></td><td>{{ optional($enrollment->status_changed_at ?? $enrollment->enrolled_at)->format('M d, Y H:i') }}</td><td>{{ $enrollment->action_reason ?? '—' }}</td></tr>@empty<tr><td colspan="6" class="text-center text-muted py-5">No enrollment records found.</td></tr>@endforelse</tbody></table></div>{{ isset($enrollments) ? $enrollments->links() : '' }}</div></section></div>
+@endsection

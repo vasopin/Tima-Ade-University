@@ -1,0 +1,3 @@
+@extends('layouts.app')
+@section('title', 'Dean Reports')
+@section('content')<div class="container-fluid px-0"><div class="welcome-banner mb-4"><h1 class="welcome-title">{{ $faculty->name }} Faculty Reports</h1><p class="welcome-text mb-0">Available reports are restricted to this Faculty.</p></div><div class="card custom-card"><div class="card-body"><h2 class="h5">Student progression report</h2><p class="text-muted">Download the current faculty-scoped student register for analysis and reporting.</p><a class="btn btn-primary" href="{{ route('dean.students.export') }}">Export faculty students (CSV)</a></div></div></div>@endsection

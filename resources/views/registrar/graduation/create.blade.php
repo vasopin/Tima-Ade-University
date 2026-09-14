@@ -1,0 +1,7 @@
+@extends('layouts.app')
+
+@section('title', 'Start Graduation Clearance')
+
+@section('content')
+<div class="container-fluid px-4 py-4 bg-light min-vh-100"><div class="mb-4"><p class="text-uppercase text-muted small fw-semibold mb-1">Registrar workspace</p><h1 class="h2 mb-1">Start Graduation Clearance</h1><p class="text-muted mb-0">Eligibility is calculated from the student's recorded marks and academic standing.</p></div><section class="card border-0 shadow-sm"><form method="POST" action="{{ route('registrar.graduation.store') }}"><div class="card-body row g-3">@csrf<div class="col-12"><label for="student-id" class="form-label">Student</label><select id="student-id" name="student_id" class="form-select" required><option value="">Select a student</option>@foreach($students as $student)<option value="{{ $student->id }}" @selected(old('student_id') == $student->id)>{{ $student->user->name }} ({{ $student->student_id }})</option>@endforeach</select></div><div class="col-12 col-md-7"><label for="degree-name" class="form-label">Degree or programme</label><input id="degree-name" name="degree_name" value="{{ old('degree_name') }}" class="form-control" required></div><div class="col-12 col-md-5"><label for="honors" class="form-label">Honors</label><input id="honors" name="honors" value="{{ old('honors') }}" class="form-control"></div></div><div class="card-footer bg-white"><button class="btn btn-primary" type="submit">Calculate and create record</button></div></form></section></div>
+@endsection

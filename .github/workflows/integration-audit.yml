@@ -1,0 +1,44 @@
+name: Integration Audit
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  integration-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: mbstring, pdo_sqlite, pdo_mysql, openssl
+
+      - name: Install composer deps
+        run: composer install --no-interaction --prefer-dist --optimize-autoloader
+
+      - name: Prepare database
+        run: |
+          cp .env.example .env || true
+          mkdir -p database
+          touch database/database.sqlite
+          php artisan key:generate || true
+          php artisan migrate --force || true
+
+      - name: Start Laravel server
+        run: nohup php artisan serve --host=127.0.0.1 --port=8000 > /tmp/laravel.log 2>&1 &
+
+      - name: Run integration audit
+        run: php scripts/integration_full_audit.php
+
+      - name: Upload logs
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: laravel-log
+          path: storage/logs/laravel.log

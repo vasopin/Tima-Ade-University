@@ -1,0 +1,9 @@
+@extends('layouts.app')
+@section('title', 'Dean Department')
+@section('content')
+<div class="container-fluid px-0">
+    <div class="welcome-banner mb-4"><h1 class="welcome-title">{{ $department->name }}</h1><p class="welcome-text mb-0">{{ $faculty->name }} Faculty · {{ $department->code }}</p></div>
+    <div class="row g-3 mb-4"><div class="col-md-4"><div class="card custom-card"><div class="card-body"><span class="text-muted">Department Head</span><h2 class="h5 mt-2">{{ $department->head?->name ?? 'Not assigned' }}</h2></div></div></div><div class="col-md-4"><div class="card custom-card"><div class="card-body"><span class="text-muted">Programs</span><h2 class="h5 mt-2">{{ $programs->count() }}</h2></div></div></div><div class="col-md-4"><div class="card custom-card"><div class="card-body"><span class="text-muted">Courses</span><h2 class="h5 mt-2">{{ $courses->count() }}</h2></div></div></div></div>
+    <div class="row g-3"><div class="col-lg-6"><div class="card custom-card"><div class="card-header bg-white"><h2 class="h5 mb-0">Programs</h2></div><div class="card-body"><div class="table-responsive"><table class="table"><thead><tr><th>Name</th><th>Students</th></tr></thead><tbody>@forelse($programs as $program)<tr><td>{{ $program->name }}</td><td>{{ $program->students_count }}</td></tr>@empty<tr><td colspan="2">No programs.</td></tr>@endforelse</tbody></table></div></div></div></div><div class="col-lg-6"><div class="card custom-card"><div class="card-header bg-white"><h2 class="h5 mb-0">Courses</h2></div><div class="card-body"><div class="table-responsive"><table class="table"><thead><tr><th>Name</th><th>Sections</th></tr></thead><tbody>@forelse($courses as $course)<tr><td>{{ $course->name }}</td><td>{{ $course->course_sections_count }}</td></tr>@empty<tr><td colspan="2">No courses.</td></tr>@endforelse</tbody></table></div></div></div></div></div>
+</div>
+@endsection

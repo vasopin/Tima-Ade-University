@@ -1,0 +1,1911 @@
+
+   PASS  Tests\Unit\ExamMarkTest
+  ✓ student and user parent relationships are configured                                                         0.31s  
+  ✓ compute grade boundaries                                                                                     0.02s  
+
+   PASS  Tests\Unit\ExamReportCardRouteTest
+  ✓ report card route exists and requires auth                                                                   0.04s  
+
+   PASS  Tests\Unit\ExampleTest
+  ✓ that true is true
+
+   PASS  Tests\Unit\NotificationPhaseTest
+  ✓ notification routes exist and require authentication                                                         0.02s  
+
+   PASS  Tests\Unit\ReportRoutesTest
+  ✓ report export routes exist and require auth                                                                  0.02s  
+
+   PASS  Tests\Unit\TimetableModuleTest
+  ✓ timetable migration model controller and views exist                                                         0.02s  
+
+   FAIL  Tests\Feature\AdminAccountProvisioningTest
+  ⨯ admin and super admin can create teacher student and parent accounts                                        51.86s  
+  ⨯ non admin roles cannot create accounts                                                                       0.06s  
+  ⨯ generic user form cannot create privileged accounts                                                          0.05s  
+  ⨯ admin and super admin can create staff accounts                                                              0.04s  
+  ⨯ staff reaches staff dashboard and cannot access admin surfaces                                               0.03s  
+  ⨯ admin cannot assign super admin role when editing an account                                                 0.02s  
+  ⨯ staff can manage student and parent records without privileged access                                        0.02s  
+  ⨯ staff can create and update student and parent records without changing passwords                            0.07s  
+
+   FAIL  Tests\Feature\AuthTest
+  ⨯ login screen can be rendered                                                                                 0.05s  
+  ⨯ users can authenticate using login screen                                                                    0.06s  
+  ⨯ login pages include accessible portal visual markup                                                          0.04s  
+  ⨯ login returns each role to its separate portal                                                               0.02s  
+  ⨯ authenticated admin opening admin sign in reaches administration portal                                      0.04s  
+  ⨯ every role can only sign in through its authorized portal                                                    0.04s  
+  ⨯ users can not authenticate with invalid password                                                             0.02s  
+  ⨯ users can authenticate with normalized email input                                                           0.02s  
+  ⨯ unknown email cannot authenticate                                                                            0.02s  
+  ✓ login uses the web guard and users provider                                                                  0.02s  
+  ✓ public registration is redirected to login                                                                   0.07s  
+  ⨯ public registration post does not create an account                                                          0.05s  
+  ✓ public navigation does not expose registration                                                               0.12s  
+  ⨯ non admin personal information is read only but password changes remain available                            0.05s  
+  ⨯ admin can update another users personal information and photo                                                0.06s  
+  ⨯ teacher student and parent personal information is read only                                                 0.02s  
+
+   PASS  Tests\Feature\DashboardSearchCalendarTest
+  ✓ search endpoint requires authentication                                                                      0.11s  
+  ✓ calendar endpoint requires authentication                                                                    0.05s  
+  ✓ super admin search endpoint works                                                                            0.46s  
+  ✓ admin search endpoint works                                                                                  0.08s  
+  ✓ staff search endpoint works                                                                                  0.13s  
+  ✓ teacher search endpoint works                                                                                0.07s  
+  ✓ student search endpoint works                                                                                0.09s  
+  ✓ parent search endpoint works                                                                                 0.07s  
+  ✓ calendar events returns role specific data                                                                   0.06s  
+  ✓ calendar events respects month parameter                                                                     0.09s  
+  ✓ search with short query                                                                                      0.07s  
+  ✓ search results are properly formatted                                                                        0.09s  
+  ✓ teacher calendar shows proper structure                                                                      0.06s  
+  ✓ student calendar shows proper structure                                                                      0.08s  
+  ✓ parent calendar shows proper structure                                                                       0.05s  
+  ✓ search response has results key                                                                              0.13s  
+  ✓ calendar response has events key                                                                             0.08s  
+
+   FAIL  Tests\Feature\ExampleTest
+  ⨯ the application returns a successful response                                                                0.06s  
+
+   FAIL  Tests\Feature\LiveClassAccessTest
+  ✓ teacher live class page renders assigned classes                                                             0.18s  
+  ✓ teacher live class page only lists their assigned course options                                             0.09s  
+  ⨯ teacher can create a live class for their course                                                             0.09s  
+  ⨯ authorized teacher can go live from scheduled class                                                          0.13s  
+  ⨯ create and schedule are separate actions                                                                     0.13s  
+  ⨯ ended class cannot be started again                                                                          0.09s  
+  ⨯ student cannot create live classes                                                                           0.30s  
+  ⨯ enrolled student can see live class and non enrolled user cannot join                                        0.18s  
+  ⨯ teacher can end live class and student cannot end it                                                         0.07s  
+  ⨯ teacher can moderate participants and student cannot                                                         0.12s  
+  ⨯ student can leave without ending class and cannot rejoin after end                                           0.13s  
+  ⨯ teacher can update permissions and staff cannot monitor                                                      0.08s  
+
+   FAIL  Tests\Feature\LmsSecurityTest
+  ⨯ authorized teacher can upload to their course
+  ⨯ unauthorized teacher cannot upload to another teachers course
+  ⨯ enrolled student can view course material
+  ⨯ unenrolled student cannot view course material
+  ⨯ student cannot modify attendance
+  ⨯ teacher cannot manage another teachers attendance
+  ⨯ authorized teacher can save attendance from teacher page
+  ⨯ student can view fee ledger but cannot record payment
+  ⨯ parent dashboard uses linked children and rejects other children
+  ⨯ tima ai respects authenticated role scope
+  ⨯ tima ai prioritizes navigation and specific data intents
+  ⨯ tima ai navigation stays within each role surface
+  ⨯ tima ai refuses explicit private data requests
+  ⨯ super admin tima ai supports management and operational queries
+  ⨯ attendance register shows take action only to authorized roles
+  ⨯ unauthorized file access is rejected
+  ⨯ admin retains appropriate management access
+  ⨯ authorized teacher can create an assessment for an assigned subject
+  ⨯ teacher cannot create an assessment for another teachers subject
+  ⨯ students and parents cannot create assessments
+
+   FAIL  Tests\Feature\MessagingAccessTest
+  ✓ unauthenticated users cannot access messages                                                                 0.07s  
+  ⨯ staff can message students but not teachers                                                                  0.09s  
+  ⨯ teacher can message a student in an assigned class only                                                      0.08s  
+  ⨯ students must accept friend request before private chat                                                      0.09s  
+  ⨯ friend requests reject self and duplicate pending requests                                                   0.08s  
+  ⨯ only conversation participants can read or send messages                                                     0.08s  
+  ⨯ message can be deleted for self                                                                              0.08s  
+  ⨯ message can be deleted for everyone within 24 hours                                                          0.09s  
+  ⨯ non sender cannot delete message for everyone                                                                0.08s  
+  ⨯ deleted messages removed from unread count                                                                   0.08s  
+  ⨯ recipient can delete message for self                                                                        0.08s  
+
+   FAIL  Tests\Feature\PublicPagesTest
+  ⨯ all public pages load successfully                                                                           0.13s  
+  ⨯ university administration portal is restricted to authorized roles                                           0.06s  
+  ⨯ results remains available to role scoped users                                                               0.05s  
+  ✓ portal links preserve context through the existing login flow                                                0.05s  
+  ✓ portal sign in entry points are distinct and share authentication                                            0.03s  
+  ✓ public apply now uses the existing admissions inquiry form                                                   0.09s  
+  ✓ home page uses html5 promo video when local mp4 exists                                                       0.08s  
+  ⨯ apply workflow requires steps and creates submitted application                                              0.06s  
+  ⨯ only administrators can review and decide applications                                                       0.05s  
+  ⨯ admin can publish notice and public board displays it                                                        0.05s  
+  ⨯ future dated active notice is not publicly visible                                                           0.05s  
+  ⨯ admin can upload video notice and public board renders it                                                    0.03s  
+  ⨯ teacher cannot manage video notices                                                                          0.06s  
+  ⨯ admin can open video management page and teacher cannot                                                      0.04s  
+
+   FAIL  Tests\Feature\RoleAccessTest
+  ✓ unauthenticated user cannot access protected dashboard                                                       0.04s  
+  ✓ unauthenticated user cannot access students management                                                       0.03s  
+  ⨯ admin user can access dashboard and modules                                                                  0.03s  
+  ⨯ api user endpoint returns authenticated role                                                                 0.04s  
+  ⨯ api user endpoint returns only the authenticated students id                                                 0.05s  
+  ✓ admission portal allows only administrators and staff                                                        0.16s  
+
+   FAIL  Tests\Feature\StudentIdTest
+  ⨯ students receive unique ids in the official format                                                           0.05s  
+  ⨯ new student receives the next distinct id                                                                    0.03s  
+  ⨯ student id is unchanged when the profile is updated                                                          0.03s  
+  ⨯ authorized directory searches by student id                                                                  0.03s  
+  ⨯ student can see only their own profile and id                                                                0.03s  
+  ⨯ admin and staff can view student ids                                                                         0.07s  
+  ⨯ client submitted student id does not override the official id                                                0.03s  
+
+   FAIL  Tests\Feature\TestsExamsFeatureTest
+  ✓ teacher and student test index pages render                                                                  1.38s  
+  ⨯ teacher can create test for authorized course                                                                1.85s  
+  ⨯ teacher cannot create test for unauthorized course                                                           1.27s  
+  ✓ student can only access enrolled course test                                                                 1.37s  
+  ✓ student cannot access non enrolled course test                                                               1.36s  
+  ⨯ test can only be taken if published and available                                                            1.16s  
+  ⨯ auto grading for mcq questions                                                                               1.32s  
+  ⨯ attempt limit is enforced                                                                                    1.46s  
+  ✓ student cannot access another students attempt                                                               1.68s  
+  ⨯ results only visible when released                                                                           1.27s  
+  ✓ non authenticated user cannot access tests                                                                   1.34s  
+  ⨯ staff cannot create tests                                                                                    1.60s  
+
+   FAIL  Tests\Feature\VoiceApiTest
+  ⨯ unauthenticated user cannot upload voice message                                                             0.13s  
+  ⨯ conversation non participant cannot upload voice message                                                     0.21s  
+  ⨯ participant cannot message unauthorized user via voice                                                       0.10s  
+  ⨯ staff can upload voice message to student                                                                    0.07s  
+  ⨯ staff cannot upload voice message to teacher                                                                 0.06s  
+  ⨯ teacher can upload voice to assigned student                                                                 0.08s  
+  ⨯ student can upload voice to friendly student                                                                 0.14s  
+  ⨯ student cannot upload voice to non friend student                                                            0.24s  
+  ⨯ voice message upload validates audio file type                                                               0.07s  
+  ⨯ voice message upload validates file size                                                                     0.19s  
+  ⨯ voice message upload validates duration                                                                      0.26s  
+  ✓ unauthenticated user cannot download voice message                                                           0.14s  
+  ✓ non participant cannot download voice message                                                                0.13s  
+  ✓ conversation participant can download voice message                                                          0.11s  
+  ✓ conversation response includes voice messages for persistent history                                         0.22s  
+  ✓ conversation response combines text and voice messages chronologically                                       0.20s  
+  ✓ voice message file is served inline for browser audio player                                                 0.17s  
+  ✓ voice message marks as played on download                                                                    0.10s  
+  ✓ voice message endpoint returns 404 for missing file                                                          0.10s  
+  ✓ call and video endpoints are removed                                                                         0.22s  
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\AdminAccountProvisioningTest > admin and super admin can create tea…  BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\AdminAccountProvisioningTest > non admin roles cannot create accoun…  BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\AdminAccountProvisioningTest > generic user form cannot create priv…  BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\AdminAccountProvisioningTest > admin and super admin can create sta…  BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\AdminAccountProvisioningTest > staff reaches staff dashboard and ca…  BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\AdminAccountProvisioningTest > admin cannot assign super admin role…  BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\AdminAccountProvisioningTest > staff can manage student and parent…   BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\AdminAccountProvisioningTest > staff can create and update student…   BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\AuthTest > login screen can be rendered                               BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\AuthTest > users can authenticate using login screen                  BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\AuthTest > login pages include accessible portal visual markup        BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\AuthTest > login returns each role to its separate portal             BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\AuthTest > authenticated admin opening admin sign in reaches admini…  BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\AuthTest > every role can only sign in through its authorized porta…  BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\AuthTest > users can not authenticate with invalid password           BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\AuthTest > users can authenticate with normalized email input         BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\AuthTest > unknown email cannot authenticate                          BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\AuthTest > public registration post does not create an account        BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\AuthTest > non admin personal information is read only but password…  BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\AuthTest > admin can update another users personal information and…   BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\AuthTest > teacher student and parent personal information is read…   BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\ExampleTest > the application returns a successful response           BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\LiveClassAccessTest > teacher can create a live class for their course                         
+  Expected response status code [201, 301, 302, 303, 307, 308] but received 419.
+Failed asserting that false is true.
+
+  at tests\Feature\LiveClassAccessTest.php:93
+     89▕             'scheduled_at' => now()->addDay()->format('Y-m-d H:i:s'),
+     90▕             'duration_minutes' => 50,
+     91▕         ]);
+     92▕ 
+  ➜  93▕         $response->assertRedirect();
+     94▕         $this->assertDatabaseHas('live_classes', ['title' => 'Algebra Review', 'teacher_id' => $teacherUser->id]);
+     95▕     }
+     96▕ 
+     97▕     public function test_authorized_teacher_can_go_live_from_scheduled_class(): void
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\LiveClassAccessTest > authorized teacher can go live from scheduled class                      
+  Expected response status code [201, 301, 302, 303, 307, 308] but received 419.
+Failed asserting that false is true.
+
+  at tests\Feature\LiveClassAccessTest.php:117
+    113▕         ]);
+    114▕ 
+    115▕         $this->actingAs($teacherUser)
+    116▕             ->post("/live-classes/{$liveClass->id}/start")
+  ➜ 117▕             ->assertRedirect(route('live-classes.show', $liveClass));
+    118▕ 
+    119▕         $this->assertDatabaseHas('live_classes', [
+    120▕             'id' => $liveClass->id,
+    121▕             'status' => 'live',
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\LiveClassAccessTest > create and schedule are separate actions                                 
+  Expected response status code [201, 301, 302, 303, 307, 308] but received 419.
+Failed asserting that false is true.
+
+  at tests\Feature\LiveClassAccessTest.php:140
+    136▕                 'title' => 'History Classroom',
+    137▕                 'school_class_id' => $schoolClass->id,
+    138▕                 'subject_id' => $subject->id,
+    139▕             ])
+  ➜ 140▕             ->assertRedirect();
+    141▕ 
+    142▕         $liveClass = \App\Models\LiveClass::where('title', 'History Classroom')->firstOrFail();
+    143▕         $this->assertSame('created', $liveClass->status);
+    144▕
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\LiveClassAccessTest > ended class cannot be started again                                      
+  Expected response status code [422] but received 419.
+Failed asserting that 419 is identical to 422.
+
+  at tests\Feature\LiveClassAccessTest.php:180
+    176▕         ]);
+    177▕ 
+    178▕         $this->actingAs($teacherUser)
+    179▕             ->post("/live-classes/{$liveClass->id}/start")
+  ➜ 180▕             ->assertStatus(422);
+    181▕     }
+    182▕ 
+    183▕     public function test_student_cannot_create_live_classes(): void
+    184▕     {
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\LiveClassAccessTest > student cannot create live classes                                       
+  Expected response status code [403] but received 419.
+Failed asserting that 419 is identical to 403.
+
+  at tests\Feature\LiveClassAccessTest.php:210
+    206▕             'scheduled_at' => now()->addDay()->format('Y-m-d H:i:s'),
+    207▕             'duration_minutes' => 50,
+    208▕         ]);
+    209▕ 
+  ➜ 210▕         $response->assertForbidden();
+    211▕     }
+    212▕ 
+    213▕     public function test_enrolled_student_can_see_live_class_and_non_enrolled_user_cannot_join(): void
+    214▕     {
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\LiveClassAccessTest > enrolled student can see live class and non enrolled user cannot join    
+  Expected response status code [403] but received 419.
+Failed asserting that 419 is identical to 403.
+
+  at tests\Feature\LiveClassAccessTest.php:299
+    295▕             ->assertDontSee('Exam Prep')
+    296▕             ->assertDontSee('Upcoming Physics Workshop');
+    297▕ 
+    298▕         $joinResponse = $this->actingAs($otherStudentUser)->post('/live-classes/' . $liveClass->id . '/join');
+  ➜ 299▕         $joinResponse->assertForbidden();
+    300▕     }
+    301▕ 
+    302▕     public function test_teacher_can_end_live_class_and_student_cannot_end_it(): void
+    303▕     {
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\LiveClassAccessTest > teacher can end live class and student cannot end it                     
+  Expected response status code [201, 301, 302, 303, 307, 308] but received 419.
+Failed asserting that false is true.
+
+  at tests\Feature\LiveClassAccessTest.php:336
+    332▕             'started_at' => now()->subMinutes(20),
+    333▕         ]);
+    334▕ 
+    335▕         $this->actingAs($teacherUser)->post('/live-classes/' . $liveClass->id . '/end')
+  ➜ 336▕             ->assertRedirect();
+    337▕ 
+    338▕         $this->assertDatabaseHas('live_classes', ['id' => $liveClass->id, 'status' => 'ended']);
+    339▕ 
+    340▕         $this->actingAs($studentUser)->post('/live-classes/' . $liveClass->id . '/end')
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\LiveClassAccessTest > teacher can moderate participants and student cannot                     
+  Expected response status code [201, 301, 302, 303, 307, 308] but received 419.
+Failed asserting that false is true.
+
+  at tests\Feature\LiveClassAccessTest.php:388
+    384▕             'joined_at' => now(),
+    385▕         ]);
+    386▕ 
+    387▕         $this->actingAs($teacherUser)->post('/live-classes/' . $liveClass->id . '/participants/' . $participant->id . '/mute')
+  ➜ 388▕             ->assertRedirect();
+    389▕ 
+    390▕         $this->actingAs($studentUser)->post('/live-classes/' . $liveClass->id . '/participants/' . $participant->id . '/mute')
+    391▕             ->assertForbidden();
+    392▕     }
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\LiveClassAccessTest > student can leave without ending class and cannot rejoin after end       
+  Expected response status code [201, 301, 302, 303, 307, 308] but received 419.
+Failed asserting that false is true.
+
+  at tests\Feature\LiveClassAccessTest.php:423
+    419▕             'status' => 'live',
+    420▕             'started_at' => now(),
+    421▕         ]);
+    422▕ 
+  ➜ 423▕         $this->actingAs($studentUser)->post("/live-classes/{$liveClass->id}/join")->assertRedirect();
+    424▕         $this->actingAs($studentUser)->post("/live-classes/{$liveClass->id}/leave")->assertRedirect();
+    425▕         $this->assertDatabaseHas('live_classes', ['id' => $liveClass->id, 'status' => 'live']);
+    426▕         $this->actingAs($teacherUser)->post("/live-classes/{$liveClass->id}/end")->assertRedirect();
+    427▕         $this->actingAs($studentUser)->post("/live-classes/{$liveClass->id}/join")->assertForbidden();
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\LiveClassAccessTest > teacher can update permissions and staff cannot monitor                  
+  Expected response status code [201, 301, 302, 303, 307, 308] but received 419.
+Failed asserting that false is true.
+
+  at tests\Feature\LiveClassAccessTest.php:462
+    458▕ 
+    459▕         $this->actingAs($teacherUser)->patch("/live-classes/{$liveClass->id}/participants/{$participant->id}/permissions", [
+    460▕             'can_share_screen' => false,
+    461▕             'can_send_messages' => true,
+  ➜ 462▕         ])->assertRedirect();
+    463▕         $this->assertDatabaseHas('live_class_participants', ['id' => $participant->id]);
+    464▕         $this->actingAs($adminUser)->get('/admin/live-classes')->assertOk()->assertSee('Studio Session');
+    465▕         $this->actingAs($superAdminUser)->get('/admin/live-classes')->assertOk()->assertSee('Studio Session');
+    466▕         $this->actingAs($staffUser)->get('/admin/live-classes')->assertForbidden();
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\LmsSecurityTest > authorized teacher can upload to their course       BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\LmsSecurityTest > unauthorized teacher cannot upload to another tea…  BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\LmsSecurityTest > enrolled student can view course material           BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\LmsSecurityTest > unenrolled student cannot view course material      BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\LmsSecurityTest > student cannot modify attendance                    BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\LmsSecurityTest > teacher cannot manage another teachers attendance   BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\LmsSecurityTest > authorized teacher can save attendance from teach…  BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\LmsSecurityTest > student can view fee ledger but cannot record pay…  BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\LmsSecurityTest > parent dashboard uses linked children and rejects…  BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\LmsSecurityTest > tima ai respects authenticated role scope           BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\LmsSecurityTest > tima ai prioritizes navigation and specific data…   BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\LmsSecurityTest > tima ai navigation stays within each role surface   BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\LmsSecurityTest > tima ai refuses explicit private data requests      BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\LmsSecurityTest > super admin tima ai supports management and opera…  BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\LmsSecurityTest > attendance register shows take action only to aut…  BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\LmsSecurityTest > unauthorized file access is rejected                BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\LmsSecurityTest > admin retains appropriate management access         BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\LmsSecurityTest > authorized teacher can create an assessment for a…  BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\LmsSecurityTest > teacher cannot create an assessment for another t…  BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\LmsSecurityTest > students and parents cannot create assessments      BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\MessagingAccessTest > staff can message students but not teachers                              
+  Expected response status code [201] but received 419.
+Failed asserting that 419 is identical to 201.
+
+  at tests\Feature\MessagingAccessTest.php:31
+     27▕         $staff = $this->user('staff');
+     28▕         $student = $this->user('student');
+     29▕         $teacher = $this->user('teacher');
+     30▕ 
+  ➜  31▕         $this->actingAs($staff)->postJson('/api/messages/conversations', ['recipient_id' => $student->id])->assertCreated();
+     32▕         $this->actingAs($staff)->postJson('/api/messages/conversations', ['recipient_id' => $teacher->id])->assertForbidden();
+     33▕     }
+     34▕ 
+     35▕     public function test_teacher_can_message_a_student_in_an_assigned_class_only(): void
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\MessagingAccessTest > teacher can message a student in an assigned class only                  
+  Expected response status code [201] but received 419.
+Failed asserting that 419 is identical to 201.
+
+  at tests\Feature\MessagingAccessTest.php:45
+     41▕         $section = DB::table('sections')->insertGetId(['school_class_id' => $schoolClass, 'name' => 'A', 'capacity' => 40, 'created_at' => now(), 'updated_at' => now()]);
+     42▕         $authorizedStudent->student->update(['school_class_id' => $schoolClass, 'section_id' => $section]);
+     43▕         DB::table('class_subject')->insert(['school_class_id' => $schoolClass, 'subject_id' => DB::table('subjects')->insertGetId(['name' => 'Math', 'code' => 'MATH-' . uniqid(), 'is_active' => true, 'created_at' => now(), 'updated_at' => now()]), 'teacher_id' => $teacher->id, 'created_at' => now(), 'updated_at' => now()]);
+     44▕ 
+  ➜  45▕         $this->actingAs($teacher)->postJson('/api/messages/conversations', ['recipient_id' => $authorizedStudent->id])->assertCreated();
+     46▕         $this->actingAs($teacher)->postJson('/api/messages/conversations', ['recipient_id' => $unrelatedStudent->id])->assertForbidden();
+     47▕     }
+     48▕ 
+     49▕     public function test_students_must_accept_friend_request_before_private_chat(): void
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\MessagingAccessTest > students must accept friend request before private chat                  
+  Expected response status code [201] but received 419.
+Failed asserting that 419 is identical to 201.
+
+  at tests\Feature\MessagingAccessTest.php:54
+     50▕     {
+     51▕         $first = $this->studentUser('first-student');
+     52▕         $second = $this->studentUser('second-student');
+     53▕ 
+  ➜  54▕         $request = $this->actingAs($first)->postJson('/api/messages/friend-requests', ['recipient_id' => $second->id])->assertCreated()->json('request');
+     55▕         $this->actingAs($first)->postJson('/api/messages/conversations', ['recipient_id' => $second->id])->assertForbidden();
+     56▕         $this->actingAs($second)->patchJson('/api/messages/friend-requests/' . $request['id'] . '/accepted')->assertOk();
+     57▕         $this->actingAs($first)->postJson('/api/messages/conversations', ['recipient_id' => $second->id])->assertCreated();
+     58▕     }
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\MessagingAccessTest > friend requests reject self and duplicate pending requests               
+  Expected response status code [422] but received 419.
+Failed asserting that 419 is identical to 422.
+
+  at tests\Feature\MessagingAccessTest.php:65
+     61▕     {
+     62▕         $student = $this->studentUser('self-student');
+     63▕         $other = $this->studentUser('other-student');
+     64▕ 
+  ➜  65▕         $this->actingAs($student)->postJson('/api/messages/friend-requests', ['recipient_id' => $student->id])->assertUnprocessable();
+     66▕         $this->actingAs($student)->postJson('/api/messages/friend-requests', ['recipient_id' => $other->id])->assertCreated();
+     67▕         $this->actingAs($student)->postJson('/api/messages/friend-requests', ['recipient_id' => $other->id])->assertUnprocessable();
+     68▕     }
+     69▕
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\MessagingAccessTest > only conversation participants can read or send messages                 
+  Expected response status code [201] but received 419.
+Failed asserting that 419 is identical to 201.
+
+  at tests\Feature\MessagingAccessTest.php:75
+     71▕     {
+     72▕         $first = $this->user('staff');
+     73▕         $second = $this->user('student');
+     74▕         $outsider = $this->user('teacher');
+  ➜  75▕         $conversation = $this->actingAs($first)->postJson('/api/messages/conversations', ['recipient_id' => $second->id])->assertCreated()->json('conversation');
+     76▕         $conversationId = $conversation['id'];
+     77▕ 
+     78▕         $this->actingAs($first)->postJson('/api/messages/conversations/' . $conversationId . '/messages', ['body' => 'Private note'])->assertCreated();
+     79▕         $this->actingAs($second)->getJson('/api/messages/conversations/' . $conversationId . '/messages')->assertOk()->assertJsonPath('messages.0.body', 'Private note');
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\MessagingAccessTest > message can be deleted for self                         ErrorException   
+  Trying to access array offset on null
+
+  at tests\Feature\MessagingAccessTest.php:90
+     86▕     {
+     87▕         $staff = $this->user('staff');
+     88▕         $student = $this->user('student');
+     89▕         $conversation = $this->actingAs($staff)->postJson('/api/messages/conversations', ['recipient_id' => $student->id])->json('conversation');
+  ➜  90▕         $conversationId = $conversation['id'];
+     91▕         
+     92▕         $message = $this->actingAs($staff)->postJson('/api/messages/conversations/' . $conversationId . '/messages', ['body' => 'Delete me'])->json('message');
+     93▕         $messageId = $message['id'];
+     94▕
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\MessagingAccessTest > message can be deleted for everyone within 24 hours     ErrorException   
+  Trying to access array offset on null
+
+  at tests\Feature\MessagingAccessTest.php:111
+    107▕     {
+    108▕         $staff = $this->user('staff');
+    109▕         $student = $this->user('student');
+    110▕         $conversation = $this->actingAs($staff)->postJson('/api/messages/conversations', ['recipient_id' => $student->id])->json('conversation');
+  ➜ 111▕         $conversationId = $conversation['id'];
+    112▕         
+    113▕         $message = $this->actingAs($staff)->postJson('/api/messages/conversations/' . $conversationId . '/messages', ['body' => 'Delete for all'])->json('message');
+    114▕         $messageId = $message['id'];
+    115▕
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\MessagingAccessTest > non sender cannot delete message for everyone           ErrorException   
+  Trying to access array offset on null
+
+  at tests\Feature\MessagingAccessTest.php:132
+    128▕     {
+    129▕         $staff = $this->user('staff');
+    130▕         $student = $this->user('student');
+    131▕         $conversation = $this->actingAs($staff)->postJson('/api/messages/conversations', ['recipient_id' => $student->id])->json('conversation');
+  ➜ 132▕         $conversationId = $conversation['id'];
+    133▕         
+    134▕         $message = $this->actingAs($staff)->postJson('/api/messages/conversations/' . $conversationId . '/messages', ['body' => 'I cannot delete this'])->json('message');
+    135▕         $messageId = $message['id'];
+    136▕
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\MessagingAccessTest > deleted messages removed from unread count              ErrorException   
+  Trying to access array offset on null
+
+  at tests\Feature\MessagingAccessTest.php:150
+    146▕     {
+    147▕         $staff = $this->user('staff');
+    148▕         $student = $this->user('student');
+    149▕         $conversation = $this->actingAs($staff)->postJson('/api/messages/conversations', ['recipient_id' => $student->id])->json('conversation');
+  ➜ 150▕         $conversationId = $conversation['id'];
+    151▕         
+    152▕         $this->actingAs($staff)->postJson('/api/messages/conversations/' . $conversationId . '/messages', ['body' => 'Message 1'])->json('message');
+    153▕         $message2 = $this->actingAs($staff)->postJson('/api/messages/conversations/' . $conversationId . '/messages', ['body' => 'Message 2'])->json('message');
+    154▕
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\MessagingAccessTest > recipient can delete message for self                   ErrorException   
+  Trying to access array offset on null
+
+  at tests\Feature\MessagingAccessTest.php:174
+    170▕     {
+    171▕         $staff = $this->user('staff');
+    172▕         $student = $this->user('student');
+    173▕         $conversation = $this->actingAs($staff)->postJson('/api/messages/conversations', ['recipient_id' => $student->id])->json('conversation');
+  ➜ 174▕         $conversationId = $conversation['id'];
+    175▕         
+    176▕         $message = $this->actingAs($staff)->postJson('/api/messages/conversations/' . $conversationId . '/messages', ['body' => 'From staff'])->json('message');
+    177▕         $messageId = $message['id'];
+    178▕
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\PublicPagesTest > all public pages load successfully                  BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\PublicPagesTest > university administration portal is restricted to…  BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\PublicPagesTest > results remains available to role scoped users      BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\PublicPagesTest > apply workflow requires steps and creates submitt…  BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\PublicPagesTest > only administrators can review and decide applica…  BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\PublicPagesTest > admin can publish notice and public board display…  BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\PublicPagesTest > future dated active notice is not publicly visibl…  BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\PublicPagesTest > admin can upload video notice and public board re…  BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\PublicPagesTest > teacher cannot manage video notices                 BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\PublicPagesTest > admin can open video management page and teacher…   BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\RoleAccessTest > admin user can access dashboard and modules          BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\RoleAccessTest > api user endpoint returns authenticated role         BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\RoleAccessTest > api user endpoint returns only the authenticated s…  BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\StudentIdTest > students receive unique ids in the official format    BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\StudentIdTest > new student receives the next distinct id             BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\StudentIdTest > student id is unchanged when the profile is updated   BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\StudentIdTest > authorized directory searches by student id           BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\StudentIdTest > student can see only their own profile and id         BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\StudentIdTest > admin and staff can view student ids                  BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\StudentIdTest > client submitted student id does not override the o…  BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230▕     }
+    231▕ 
+    232▕     public function confirm(string $question, bool $default = true): bool
+    233▕     {
+  ➜ 234▕         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235▕     }
+    236▕ 
+    237▕     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238▕     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\TestsExamsFeatureTest > teacher can create test for authorized course                          
+  Expected response status code [201, 301, 302, 303, 307, 308] but received 419.
+Failed asserting that false is true.
+
+  at tests\Feature\TestsExamsFeatureTest.php:165
+    161▕             'duration_minutes' => 60,
+    162▕             'attempt_limit' => 1,
+    163▕         ]);
+    164▕ 
+  ➜ 165▕         $response->assertRedirect();
+    166▕         $this->assertDatabaseHas('tests', [
+    167▕             'teacher_id' => $this->teacher->user_id,
+    168▕             'school_class_id' => $this->schoolClass->id,
+    169▕             'title' => 'Mathematics Test',
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\TestsExamsFeatureTest > teacher cannot create test for unauthorized course                     
+  Session is missing expected key [errors].
+Failed asserting that false is true.
+
+  at tests\Feature\TestsExamsFeatureTest.php:197
+    193▕             'attempt_limit' => 1,
+    194▕         ]);
+    195▕ 
+    196▕         // Should fail validation  
+  ➜ 197▕         $response->assertSessionHasErrors();
+    198▕         $this->assertDatabaseMissing('tests', ['title' => 'Unauthorized Test']);
+    199▕     }
+    200▕ 
+    201▕     /**
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\TestsExamsFeatureTest > test can only be taken if published and available                      
+  Expected response status code [403] but received 419.
+Failed asserting that 419 is identical to 403.
+
+  at tests\Feature\TestsExamsFeatureTest.php:260
+    256▕ 
+    257▕         $this->actingAs($this->student->user);
+    258▕         $response = $this->post("/student/tests/{$draftTest->id}/start");
+    259▕ 
+  ➜ 260▕         $response->assertStatus(403);
+    261▕     }
+    262▕ 
+    263▕     /**
+    264▕      * Test: Auto-grading works for MCQ questions
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\TestsExamsFeatureTest > auto grading for mcq questions                                         
+  Failed asserting that null matches expected 1.
+
+  at tests\Feature\TestsExamsFeatureTest.php:321
+    317▕         $response = $this->post("/student/tests/attempt/{$attempt->id}/submit");
+    318▕ 
+    319▕         // Verify auto-grading
+    320▕         $attempt = $attempt->refresh();
+  ➜ 321▕         $this->assertEquals(1, $attempt->score);
+    322▕         $this->assertTrue($attempt->is_passed);
+    323▕ 
+    324▕         $answer = TestAnswer::where('test_attempt_id', $attempt->id)->first();
+    325▕         $this->assertTrue($answer->is_correct);
+
+  1   tests\Feature\TestsExamsFeatureTest.php:321
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\TestsExamsFeatureTest > attempt limit is enforced                                              
+  Expected response status code [403] but received 419.
+Failed asserting that 419 is identical to 403.
+
+  at tests\Feature\TestsExamsFeatureTest.php:357
+    353▕         // Try to start second attempt
+    354▕         $this->actingAs($this->student->user);
+    355▕         $response = $this->post("/student/tests/{$test->id}/start");
+    356▕ 
+  ➜ 357▕         $response->assertStatus(403);
+    358▕         $this->assertDatabaseMissing('test_attempts', [
+    359▕             'test_id' => $test->id,
+    360▕             'student_id' => $this->student->id,
+    361▕             'attempt_number' => 2,
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\TestsExamsFeatureTest > results only visible when released                                     
+  Expected response status code [200] but received 403.
+Failed asserting that 403 is identical to 200.
+
+  at tests\Feature\TestsExamsFeatureTest.php:446
+    442▕         // Now results should be visible
+    443▕         $this->actingAs($this->student->user);
+    444▕         $response = $this->get("/student/tests/{$test->id}/results");
+    445▕ 
+  ➜ 446▕         $response->assertStatus(200);
+    447▕     }
+    448▕ 
+    449▕     /**
+    450▕      * Test: Non-authenticated user cannot access tests
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\TestsExamsFeatureTest > staff cannot create tests                                              
+  Expected response status code [403] but received 419.
+Failed asserting that 419 is identical to 403.
+
+  at tests\Feature\TestsExamsFeatureTest.php:478
+    474▕             'subject_id' => $this->subject->id,
+    475▕             'title' => 'Staff Test',
+    476▕         ]);
+    477▕ 
+  ➜ 478▕         $response->assertStatus(403);
+    479▕     }
+    480▕ }
+    481▕
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\VoiceApiTest > unauthenticated user cannot upload voice message                                
+  Expected response status code [401] but received 419.
+Failed asserting that 419 is identical to 401.
+
+  at tests\Feature\VoiceApiTest.php:46
+     42▕ 
+     43▕         $this->postJson(
+     44▕             "/api/conversations/{$conversation->id}/voice-messages",
+     45▕             ['audio' => $file, 'duration_seconds' => 5]
+  ➜  46▕         )->assertUnauthorized();
+     47▕     }
+     48▕ 
+     49▕     public function test_conversation_non_participant_cannot_upload_voice_message(): void
+     50▕     {
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\VoiceApiTest > conversation non participant cannot upload voice message                        
+  Expected response status code [403] but received 419.
+Failed asserting that 419 is identical to 403.
+
+  at tests\Feature\VoiceApiTest.php:61
+     57▕ 
+     58▕         $this->actingAs($outsider)->postJson(
+     59▕             "/api/conversations/{$conversation->id}/voice-messages",
+     60▕             ['audio' => $file, 'duration_seconds' => 5]
+  ➜  61▕         )->assertForbidden();
+     62▕     }
+     63▕ 
+     64▕     public function test_participant_cannot_message_unauthorized_user_via_voice(): void
+     65▕     {
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\VoiceApiTest > participant cannot message unauthorized user via voice                          
+  Failed asserting that false is true.
+
+  at tests\Feature\VoiceApiTest.php:84
+     80▕         $response = $this->actingAs($staff)->postJson(
+     81▕             "/api/conversations/{$conversation->id}/voice-messages",
+     82▕             ['audio' => $file, 'duration_seconds' => 5]
+     83▕         );
+  ➜  84▕         $this->assertTrue($response->status() === 201 || $response->status() === 200);
+     85▕     }
+     86▕ 
+     87▕     public function test_staff_can_upload_voice_message_to_student(): void
+     88▕     {
+
+  1   tests\Feature\VoiceApiTest.php:84
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\VoiceApiTest > staff can upload voice message to student                                       
+  Expected response status code [201] but received 419.
+Failed asserting that 419 is identical to 201.
+
+  at tests\Feature\VoiceApiTest.php:98
+     94▕ 
+     95▕         $this->actingAs($staff)->postJson(
+     96▕             "/api/conversations/{$conversation->id}/voice-messages",
+     97▕             ['audio' => $file, 'duration_seconds' => 5]
+  ➜  98▕         )->assertCreated()->assertJsonStructure(['voice_message' => ['id', 'sender_id', 'sender_name', 'duration_seconds', 'created_at']]);
+     99▕ 
+    100▕         $this->assertDatabaseHas('voice_messages', [
+    101▕             'conversation_id' => $conversation->id,
+    102▕             'sender_id' => $staff->id,
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\VoiceApiTest > staff cannot upload voice message to teacher                                    
+  Expected response status code [403] but received 419.
+Failed asserting that 419 is identical to 403.
+
+  at tests\Feature\VoiceApiTest.php:117
+    113▕         $file = UploadedFile::fake()->create('audio.webm', 100, 'audio/webm');
+    114▕ 
+    115▕         // This should fail because staff cannot message teacher
+    116▕         $this->actingAs($staff)->postJson('/api/messages/conversations', ['recipient_id' => $teacher->id])
+  ➜ 117▕             ->assertForbidden();
+    118▕     }
+    119▕ 
+    120▕     public function test_teacher_can_upload_voice_to_assigned_student(): void
+    121▕     {
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\VoiceApiTest > teacher can upload voice to assigned student                                    
+  Expected response status code [201] but received 419.
+Failed asserting that 419 is identical to 201.
+
+  at tests\Feature\VoiceApiTest.php:131
+    127▕ 
+    128▕         $this->actingAs($teacher)->postJson(
+    129▕             "/api/conversations/{$conversation->id}/voice-messages",
+    130▕             ['audio' => $file, 'duration_seconds' => 3]
+  ➜ 131▕         )->assertCreated();
+    132▕ 
+    133▕         $this->assertDatabaseHas('voice_messages', [
+    134▕             'conversation_id' => $conversation->id,
+    135▕             'sender_id' => $teacher->id,
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\VoiceApiTest > student can upload voice to friendly student                                    
+  Expected response status code [201] but received 419.
+Failed asserting that 419 is identical to 201.
+
+  at tests\Feature\VoiceApiTest.php:161
+    157▕ 
+    158▕         $this->actingAs($first)->postJson(
+    159▕             "/api/conversations/{$conversation->id}/voice-messages",
+    160▕             ['audio' => $file, 'duration_seconds' => 4]
+  ➜ 161▕         )->assertCreated();
+    162▕     }
+    163▕ 
+    164▕     public function test_student_cannot_upload_voice_to_non_friend_student(): void
+    165▕     {
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\VoiceApiTest > student cannot upload voice to non friend student                               
+  Expected response status code [403] but received 419.
+Failed asserting that 419 is identical to 403.
+
+  at tests\Feature\VoiceApiTest.php:182
+    178▕         // Should fail because they're not friends
+    179▕         $this->actingAs($first)->postJson(
+    180▕             "/api/conversations/{$conversation->id}/voice-messages",
+    181▕             ['audio' => $file, 'duration_seconds' => 4]
+  ➜ 182▕         )->assertForbidden();
+    183▕     }
+    184▕ 
+    185▕     public function test_voice_message_upload_validates_audio_file_type(): void
+    186▕     {
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\VoiceApiTest > voice message upload validates audio file type                                  
+  Expected response status code [422] but received 419.
+Failed asserting that 419 is identical to 422.
+
+  at tests\Feature\VoiceApiTest.php:197
+    193▕ 
+    194▕         $this->actingAs($staff)->postJson(
+    195▕             "/api/conversations/{$conversation->id}/voice-messages",
+    196▕             ['audio' => $file, 'duration_seconds' => 5]
+  ➜ 197▕         )->assertUnprocessable();
+    198▕     }
+    199▕ 
+    200▕     public function test_voice_message_upload_validates_file_size(): void
+    201▕     {
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\VoiceApiTest > voice message upload validates file size                                        
+  Expected response status code [422] but received 419.
+Failed asserting that 419 is identical to 422.
+
+  at tests\Feature\VoiceApiTest.php:212
+    208▕ 
+    209▕         $this->actingAs($staff)->postJson(
+    210▕             "/api/conversations/{$conversation->id}/voice-messages",
+    211▕             ['audio' => $file, 'duration_seconds' => 5]
+  ➜ 212▕         )->assertUnprocessable();
+    213▕     }
+    214▕ 
+    215▕     public function test_voice_message_upload_validates_duration(): void
+    216▕     {
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\VoiceApiTest > voice message upload validates duration                                         
+  Expected response status code [422] but received 419.
+Failed asserting that 419 is identical to 422.
+
+  at tests\Feature\VoiceApiTest.php:227
+    223▕         // Duration too long (max 300 seconds)
+    224▕         $this->actingAs($staff)->postJson(
+    225▕             "/api/conversations/{$conversation->id}/voice-messages",
+    226▕             ['audio' => $file, 'duration_seconds' => 301]
+  ➜ 227▕         )->assertUnprocessable();
+    228▕ 
+    229▕         // Duration zero
+    230▕         $this->actingAs($staff)->postJson(
+    231▕             "/api/conversations/{$conversation->id}/voice-messages",
+
+
+  Tests:    100 failed, 51 passed (216 assertions)
+  Duration: 80.38s
+

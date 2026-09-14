@@ -1,0 +1,8 @@
+@extends('layouts.app')
+@section('title', 'Tenant & Department Oversight')
+@section('breadcrumb')<li class="breadcrumb-item">Super Admin</li><li class="breadcrumb-item active" aria-current="page">Tenant Oversight</li>@endsection
+@section('content')
+<div class="container-fluid px-0"><div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-4"><div><h1 class="h3 fw-bold mb-1">Tenant &amp; Department Oversight</h1><p class="text-muted mb-0">Global view of the university tenant, departments, academic groups, and resources.</p></div><a class="btn btn-outline-primary" href="{{ route('settings.index') }}"><i class="bi bi-gear me-1"></i>Global settings</a></div>
+<div class="row g-3 mb-4">@foreach([['Users', $users, 'bi-people'], ['Academic classes', $classes, 'bi-building'], ['Facilities', $facilities, 'bi-building-gear'], ['Departments', $departments->count(), 'bi-diagram-3']] as [$label, $value, $icon])<div class="col-6 col-xl-3"><div class="card custom-card h-100"><div class="card-body"><i class="bi {{ $icon }} fs-3 text-primary" aria-hidden="true"></i><div class="small text-muted mt-2">{{ $label }}</div><strong class="fs-3">{{ $value }}</strong></div></div></div>@endforeach</div>
+<div class="card custom-card"><div class="card-header bg-white"><h2 class="h5 fw-bold mb-0">Role allocation</h2></div><div class="table-responsive"><table class="table align-middle mb-0"><thead class="table-light"><tr><th scope="col">Role</th><th scope="col">Assigned users</th></tr></thead><tbody>@foreach($roles as $role)<tr><td>{{ $role->name }}</td><td>{{ $role->users_count }}</td></tr>@endforeach</tbody></table></div></div></div>
+@endsection

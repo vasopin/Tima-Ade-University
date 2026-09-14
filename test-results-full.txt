@@ -1,0 +1,186 @@
+
+   PASS  Tests\Unit\ExamMarkTest
+  ✓ student and user parent relationships are configured                                                         0.35s  
+  ✓ compute grade boundaries                                                                                     0.03s  
+
+   PASS  Tests\Unit\ExamReportCardRouteTest
+  ✓ report card route exists and requires auth                                                                   0.05s  
+
+   PASS  Tests\Unit\ExampleTest
+  ✓ that true is true
+
+   PASS  Tests\Unit\NotificationPhaseTest
+  ✓ notification routes exist and require authentication                                                         0.03s  
+
+   PASS  Tests\Unit\ReportRoutesTest
+  ✓ report export routes exist and require auth                                                                  0.03s  
+
+   PASS  Tests\Unit\TimetableModuleTest
+  ✓ timetable migration model controller and views exist                                                         0.03s  
+
+   PASS  Tests\Feature\AdminAccountProvisioningTest
+  ✓ admin and super admin can create teacher student and parent accounts                                         9.54s  
+  ✓ non admin roles cannot create accounts                                                                       0.25s  
+  ✓ generic user form cannot create privileged accounts                                                          0.24s  
+  ✓ admin and super admin can create staff accounts                                                              0.24s  
+  ✓ staff reaches staff dashboard and cannot access admin surfaces                                               0.30s  
+  ✓ admin cannot assign super admin role when editing an account                                                 0.20s  
+  ✓ staff can manage student and parent records without privileged access                                        0.31s  
+  ✓ staff can create and update student and parent records without changing passwords                            0.23s  
+
+   PASS  Tests\Feature\AuthTest
+  ✓ login screen can be rendered                                                                                 0.22s  
+  ✓ users can authenticate using login screen                                                                    0.25s  
+  ✓ login pages include accessible portal visual markup                                                          0.40s  
+  ✓ login returns each role to its separate portal                                                               0.25s  
+  ✓ authenticated admin opening admin sign in reaches administration portal                                      0.25s  
+  ✓ every role can only sign in through its authorized portal                                                    0.35s  
+  ✓ users can not authenticate with invalid password                                                             0.21s  
+  ✓ users can authenticate with normalized email input                                                           0.21s  
+  ✓ unknown email cannot authenticate                                                                            0.23s  
+  ✓ login uses the web guard and users provider                                                                  0.03s  
+  ✓ public registration is redirected to login                                                                   0.03s  
+  ✓ public registration post does not create an account                                                          0.22s  
+  ✓ public navigation does not expose registration                                                               0.04s  
+  ✓ non admin personal information is read only but password changes remain available                            0.26s  
+  ✓ admin can update another users personal information and photo                                                0.23s  
+  ✓ teacher student and parent personal information is read only                                                 0.26s  
+
+   PASS  Tests\Feature\DashboardSearchCalendarTest
+  ✓ search endpoint requires authentication                                                                      0.05s  
+  ✓ calendar endpoint requires authentication                                                                    0.05s  
+  ✓ super admin search endpoint works                                                                            0.08s  
+  ✓ admin search endpoint works                                                                                  0.04s  
+  ✓ staff search endpoint works                                                                                  0.04s  
+  ✓ teacher search endpoint works                                                                                0.04s  
+  ✓ student search endpoint works                                                                                0.04s  
+  ✓ parent search endpoint works                                                                                 0.05s  
+  ✓ calendar events returns role specific data                                                                   0.04s  
+  ✓ calendar events respects month parameter                                                                     0.04s  
+  ✓ search with short query                                                                                      0.04s  
+  ✓ search results are properly formatted                                                                        0.04s  
+  ✓ teacher calendar shows proper structure                                                                      0.04s  
+  ✓ student calendar shows proper structure                                                                      0.04s  
+  ✓ parent calendar shows proper structure                                                                       0.04s  
+  ✓ search response has results key                                                                              0.05s  
+  ✓ calendar response has events key                                                                             0.04s  
+
+   PASS  Tests\Feature\ExampleTest
+  ✓ the application returns a successful response                                                                0.26s  
+
+   PASS  Tests\Feature\LiveClassAccessTest
+  ✓ teacher live class page renders assigned classes                                                             0.08s  
+  ✓ teacher live class page only lists their assigned course options                                             0.05s  
+  ✓ teacher can create a live class for their course                                                             0.08s  
+  ✓ authorized teacher can go live from scheduled class                                                          0.05s  
+  ✓ create and schedule are separate actions                                                                     0.05s  
+  ✓ ended class cannot be started again                                                                          1.69s  
+  ✓ student cannot create live classes                                                                           0.07s  
+  ✓ enrolled student can see live class and non enrolled user cannot join                                        0.11s  
+  ✓ teacher can end live class and student cannot end it                                                         0.05s  
+  ✓ teacher can moderate participants and student cannot                                                         0.06s  
+  ✓ student can leave without ending class and cannot rejoin after end                                           0.07s  
+  ✓ teacher can update permissions and staff cannot monitor                                                      0.08s  
+
+   PASS  Tests\Feature\LmsSecurityTest
+  ✓ authorized teacher can upload to their course                                                                0.24s  
+  ✓ unauthorized teacher cannot upload to another teachers course                                                0.24s  
+  ✓ enrolled student can view course material                                                                    0.25s  
+  ✓ unenrolled student cannot view course material                                                               1.02s  
+  ✓ student cannot modify attendance                                                                             0.35s  
+  ✓ teacher cannot manage another teachers attendance                                                            0.23s  
+  ✓ authorized teacher can save attendance from teacher page                                                     0.26s  
+  ✓ student can view fee ledger but cannot record payment                                                        0.26s  
+  ✓ parent dashboard uses linked children and rejects other children                                             0.33s  
+  ✓ tima ai respects authenticated role scope                                                                    0.26s  
+  ✓ tima ai prioritizes navigation and specific data intents                                                     0.24s  
+  ✓ tima ai navigation stays within each role surface                                                            0.24s  
+  ✓ tima ai refuses explicit private data requests                                                               0.23s  
+  ✓ super admin tima ai supports management and operational queries                                              0.30s  
+  ✓ attendance register shows take action only to authorized roles                                               0.29s  
+  ✓ unauthorized file access is rejected                                                                         0.26s  
+  ✓ admin retains appropriate management access                                                                  0.30s  
+  ✓ authorized teacher can create an assessment for an assigned subject                                          0.24s  
+  ✓ teacher cannot create an assessment for another teachers subject                                             0.23s  
+  ✓ students and parents cannot create assessments                                                               0.31s  
+
+   PASS  Tests\Feature\MessagingAccessTest
+  ✓ unauthenticated users cannot access messages                                                                 0.06s  
+  ✓ staff can message students but not teachers                                                                  0.05s  
+  ✓ teacher can message a student in an assigned class only                                                      0.06s  
+  ✓ students must accept friend request before private chat                                                      0.07s  
+  ✓ friend requests reject self and duplicate pending requests                                                   0.05s  
+  ✓ only conversation participants can read or send messages                                                     0.06s  
+
+   PASS  Tests\Feature\PublicPagesTest
+  ✓ all public pages load successfully                                                                           0.31s  
+  ✓ university administration portal is restricted to authorized roles                                           0.34s  
+  ✓ results remains available to role scoped users                                                               0.27s  
+  ✓ portal links preserve context through the existing login flow                                                0.05s  
+  ✓ portal sign in entry points are distinct and share authentication                                            0.04s  
+  ✓ public apply now uses the existing admissions inquiry form                                                   0.05s  
+  ✓ home page uses html5 promo video when local mp4 exists                                                       0.04s  
+  ✓ apply workflow requires steps and creates submitted application                                              2.04s  
+  ✓ only administrators can review and decide applications                                                       0.27s  
+  ✓ admin can publish notice and public board displays it                                                        0.24s  
+  ✓ future dated active notice is not publicly visible                                                           0.28s  
+  ✓ admin can upload video notice and public board renders it                                                    0.24s  
+  ✓ teacher cannot manage video notices                                                                          0.23s  
+  ✓ admin can open video management page and teacher cannot                                                      0.24s  
+
+   PASS  Tests\Feature\RoleAccessTest
+  ✓ unauthenticated user cannot access protected dashboard                                                       0.06s  
+  ✓ unauthenticated user cannot access students management                                                       0.03s  
+  ✓ admin user can access dashboard and modules                                                                  0.30s  
+  ✓ api user endpoint returns authenticated role                                                                 0.22s  
+  ✓ api user endpoint returns only the authenticated students id                                                 0.24s  
+  ✓ admission portal allows only administrators and staff                                                        0.15s  
+
+   PASS  Tests\Feature\StudentIdTest
+  ✓ students receive unique ids in the official format                                                           0.24s  
+  ✓ new student receives the next distinct id                                                                    0.22s  
+  ✓ student id is unchanged when the profile is updated                                                          0.21s  
+  ✓ authorized directory searches by student id                                                                  0.23s  
+  ✓ student can see only their own profile and id                                                                0.27s  
+  ✓ admin and staff can view student ids                                                                         0.27s  
+  ✓ client submitted student id does not override the official id                                                0.24s  
+
+   PASS  Tests\Feature\TestsExamsFeatureTest
+  ✓ teacher and student test index pages render                                                                  0.09s  
+  ✓ teacher can create test for authorized course                                                                0.05s  
+  ✓ teacher cannot create test for unauthorized course                                                           0.05s  
+  ✓ student can only access enrolled course test                                                                 0.07s  
+  ✓ student cannot access non enrolled course test                                                               0.06s  
+  ✓ test can only be taken if published and available                                                            0.05s  
+  ✓ auto grading for mcq questions                                                                               0.06s  
+  ✓ attempt limit is enforced                                                                                    0.06s  
+  ✓ student cannot access another students attempt                                                               0.12s  
+  ✓ results only visible when released                                                                           0.10s  
+  ✓ non authenticated user cannot access tests                                                                   0.06s  
+  ✓ staff cannot create tests                                                                                    0.07s  
+
+   PASS  Tests\Feature\VoiceApiTest
+  ✓ unauthenticated user cannot upload voice message                                                             0.06s  
+  ✓ conversation non participant cannot upload voice message                                                     0.04s  
+  ✓ participant cannot message unauthorized user via voice                                                       0.05s  
+  ✓ staff can upload voice message to student                                                                    0.06s  
+  ✓ staff cannot upload voice message to teacher                                                                 0.05s  
+  ✓ teacher can upload voice to assigned student                                                                 0.06s  
+  ✓ student can upload voice to friendly student                                                                 0.06s  
+  ✓ student cannot upload voice to non friend student                                                            0.06s  
+  ✓ voice message upload validates audio file type                                                               0.06s  
+  ✓ voice message upload validates file size                                                                     0.05s  
+  ✓ voice message upload validates duration                                                                      0.05s  
+  ✓ unauthenticated user cannot download voice message                                                           0.04s  
+  ✓ non participant cannot download voice message                                                                0.05s  
+  ✓ conversation participant can download voice message                                                          0.05s  
+  ✓ conversation response includes voice messages for persistent history                                         0.06s  
+  ✓ conversation response combines text and voice messages chronologically                                       0.06s  
+  ✓ voice message file is served inline for browser audio player                                                 0.06s  
+  ✓ voice message marks as played on download                                                                    0.05s  
+  ✓ voice message endpoint returns 404 for missing file                                                          0.07s  
+  ✓ call and video endpoints are removed                                                                         0.05s  
+
+  Tests:    146 passed (794 assertions)
+  Duration: 34.93s
+

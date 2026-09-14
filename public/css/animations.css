@@ -1,0 +1,297 @@
+/* ==========================================================================
+   PHASE 3: ANIMATION & MICRO-INTERACTION SYSTEM
+   ========================================================================== */
+
+/* Scroll Reveal Animations */
+.reveal-on-scroll {
+     opacity: 0;
+     transform: translateY(30px);
+     transition: all var(--transition-slow) cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal-on-scroll.is-visible {
+     opacity: 1;
+     transform: translateY(0);
+}
+
+.reveal-on-scroll.slide-left {
+     transform: translateX(-40px) translateY(0);
+}
+
+.reveal-on-scroll.slide-left.is-visible {
+     transform: translateX(0);
+}
+
+.reveal-on-scroll.slide-right {
+     transform: translateX(40px) translateY(0);
+}
+
+.reveal-on-scroll.slide-right.is-visible {
+     transform: translateX(0);
+}
+
+.reveal-on-scroll.fade-only {
+     transform: none;
+}
+
+/* Staggered Animation Timing */
+.reveal-on-scroll:nth-child(1) { transition-delay: 0s; }
+.reveal-on-scroll:nth-child(2) { transition-delay: 0.1s; }
+.reveal-on-scroll:nth-child(3) { transition-delay: 0.2s; }
+.reveal-on-scroll:nth-child(4) { transition-delay: 0.3s; }
+.reveal-on-scroll:nth-child(5) { transition-delay: 0.4s; }
+.reveal-on-scroll:nth-child(6) { transition-delay: 0.5s; }
+.reveal-on-scroll:nth-child(7) { transition-delay: 0.6s; }
+.reveal-on-scroll:nth-child(8) { transition-delay: 0.7s; }
+
+/* Page Transition Animation */
+@keyframes pageEnter {
+     from {
+          opacity: 0;
+          transform: translateY(20px);
+     }
+     to {
+          opacity: 1;
+          transform: translateY(0);
+     }
+}
+
+.page-enter {
+     animation: pageEnter var(--transition-normal) ease-out;
+}
+
+/* Section Background Animation */
+@keyframes sectionSlideIn {
+     from {
+          clip-path: inset(0 100% 0 0);
+     }
+     to {
+          clip-path: inset(0 0 0 0);
+     }
+}
+
+.section-slide-in {
+     animation: sectionSlideIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Image Reveal Animation */
+@keyframes imageReveal {
+     0% {
+          clip-path: inset(0 100% 0 0);
+     }
+     100% {
+          clip-path: inset(0 0 0 0);
+     }
+}
+
+.image-reveal {
+     animation: imageReveal 0.6s ease-out forwards;
+}
+
+/* Text Reveal Line by Line */
+@keyframes textReveal {
+     from {
+          opacity: 0;
+          transform: translateY(20px);
+     }
+     to {
+          opacity: 1;
+          transform: translateY(0);
+     }
+}
+
+.reveal-text-line {
+     animation: textReveal var(--transition-normal) ease-out forwards;
+     opacity: 0;
+}
+
+.reveal-text-line:nth-child(1) { animation-delay: 0s; }
+.reveal-text-line:nth-child(2) { animation-delay: 0.1s; }
+.reveal-text-line:nth-child(3) { animation-delay: 0.2s; }
+.reveal-text-line:nth-child(4) { animation-delay: 0.3s; }
+.reveal-text-line:nth-child(5) { animation-delay: 0.4s; }
+
+/* Counter Animation (for stats, numbers) */
+@keyframes countUp {
+     from {
+          opacity: 0;
+     }
+     to {
+          opacity: 1;
+     }
+}
+
+.count-up {
+     animation: countUp var(--transition-slow) ease-out;
+}
+
+/* Button Press Animation */
+.btn:active:not(:disabled) {
+     animation: pressDown 0.1s ease-out;
+}
+
+@keyframes pressDown {
+     0% { transform: translateY(0); }
+     50% { transform: translateY(2px); }
+     100% { transform: translateY(0); }
+}
+
+/* Card Hover Elevation */
+.card-hover-lift:hover {
+     box-shadow: var(--shadow-hover);
+     transform: translateY(-8px);
+     transition: all var(--transition-normal);
+}
+
+/* Badge Pulse Animation */
+@keyframes badgePulse {
+     0%, 100% {
+          opacity: 1;
+          transform: scale(1);
+     }
+     50% {
+          opacity: 0.8;
+          transform: scale(1.05);
+     }
+}
+
+.badge-pulse {
+     animation: badgePulse 2s ease-in-out infinite;
+}
+
+/* Link Underline Animation */
+.link-animate {
+     position: relative;
+     text-decoration: none;
+     color: var(--brand-green-900);
+}
+
+.link-animate::after {
+     content: '';
+     position: absolute;
+     bottom: -2px;
+     left: 0;
+     width: 0;
+     height: 2px;
+     background: var(--crimson-700);
+     transition: width var(--transition-normal);
+}
+
+.link-animate:hover::after {
+     width: 100%;
+}
+
+/* Dropdown Slide Animation */
+.dropdown-menu {
+     animation: dropdownSlide 0.2s ease-out !important;
+}
+
+@keyframes dropdownSlide {
+     from {
+          opacity: 0;
+          transform: translateY(-10px);
+     }
+     to {
+          opacity: 1;
+          transform: translateY(0);
+     }
+}
+
+/* Modal Fade and Scale */
+.modal.fade {
+     animation: modalEnter var(--transition-normal) ease-out;
+}
+
+@keyframes modalEnter {
+     from {
+          opacity: 0;
+          transform: scale(0.95);
+     }
+     to {
+          opacity: 1;
+          transform: scale(1);
+     }
+}
+
+/* Skeleton Loading Animation */
+@keyframes skeletonLoading {
+     0% {
+          background-position: -1000px 0;
+     }
+     100% {
+          background-position: 1000px 0;
+     }
+}
+
+.skeleton-loading {
+     background: linear-gradient(
+          90deg,
+          #f0f0f0 25%,
+          #e0e0e0 50%,
+          #f0f0f0 75%
+     );
+     background-size: 1000px 100%;
+     animation: skeletonLoading 2s infinite;
+     border-radius: var(--border-radius-md);
+}
+
+/* Smooth Scroll Behavior */
+html {
+     scroll-behavior: smooth;
+}
+
+/* Parallax Effect (subtle) */
+.parallax-slow {
+     background-attachment: fixed;
+     background-size: cover;
+     background-position: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+     html {
+          scroll-behavior: auto;
+     }
+
+     .reveal-on-scroll,
+     .page-enter,
+     .section-slide-in,
+     .image-reveal,
+     .reveal-text-line,
+     .count-up,
+     .btn:active,
+     .card-hover-lift:hover,
+     .badge-pulse,
+     .link-animate::after,
+     .dropdown-menu,
+     .modal.fade,
+     .skeleton-loading {
+          animation: none !important;
+          transition: none !important;
+          transform: none !important;
+     }
+
+     .reveal-on-scroll {
+          opacity: 1;
+     }
+
+     .card-hover-lift:hover {
+          box-shadow: var(--shadow-lg);
+          transform: none;
+     }
+
+     .link-animate::after {
+          width: 0;
+     }
+}
+
+/* JavaScript Hook for Scroll Reveal */
+.scroll-reveal {
+     opacity: 0;
+     transform: translateY(30px);
+}
+
+.scroll-reveal.revealed {
+     opacity: 1;
+     transform: translateY(0);
+     transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}

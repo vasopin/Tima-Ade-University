@@ -1,0 +1,21 @@
+IntegrationClassV2-1786977244</h5>
+                                <span class="small text-muted">Grade 10</span>
+                            </div>
+                        </div>
+                        <span class="badge bg-success">
+                            Active
+                        </span>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-muted small mb-3">Standard academic curriculum batch.</p>
+
+                        <div class="d-flex justify-content-between py-2 border-bottom small">
+                            <span class="text-muted"><i class="bi bi-person-badge me-1"></i>Class Teacher:</span>
+                            <span class="fw-semibold">Not Assigned</span>
+                        </div>
+                        <div class="d-flex justify-content-between py-2 border-bottom small">
+                            <span class="text-muted"><i class="bi bi-people me-1"></i>Enrolled Students:</span>
+                            <span class="fw-bold text-dark">0</span>
+                        </div>
+                        <div class="d-flex justify-content-between py-2 small">
+                            <

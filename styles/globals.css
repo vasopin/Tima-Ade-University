@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --brand-500:#1d3c7a;
+  --brand-700:#122958;
+  --brand-900:#0b1d40;
+  --accent:#5d5ce6;
+  --muted:#5d6b82;
+  --surface:#f5f7fc;
+  --line:rgba(148, 163, 184, 0.2);
+  --glass: rgba(255, 255, 255, 0.18);
+  --shadow-soft: 0 20px 50px rgba(15, 23, 42, 0.12);
+}
+
+html,body,#__next{
+  height:100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body{
+  @apply bg-slate-50 text-slate-900 antialiased;
+  background:
+    radial-gradient(circle at top left, rgba(93, 92, 230, 0.08), transparent 30%),
+    radial-gradient(circle at right center, rgba(29, 60, 122, 0.08), transparent 24%),
+    #f5f7fc;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+* { box-sizing: border-box; }
+
+img { display: block; }
+
+a, button { @apply transition-all duration-200; }
+
+::selection {
+  background: rgba(93, 92, 230, 0.18);
+  color: #0f172a;
+}
+
+/* Typography */
+.h1{ @apply text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[0.96]; }
+.h2{ @apply text-2xl md:text-3xl lg:text-4xl font-semibold tracking-[-0.04em]; }
+.p-muted{ color:var(--muted); }
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  color: rgba(255,255,255,0.9);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+.section-shell {
+  background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(248,250,252,0.94));
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  box-shadow: 0 10px 35px rgba(15, 23, 42, 0.04);
+}
+
+/* Accessibility */
+:focus{ outline: 3px solid var(--accent); outline-offset: 3px }
+
+/* Smooth image reveal */
+.img-reveal{ transition: transform .8s cubic-bezier(.2,.9,.3,1), opacity .6s; transform: translateY(6px); opacity:0; }
+.img-reveal.in{ transform:none; opacity:1 }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  *{ transition:none !important; animation:none !important; scroll-behavior:auto !important }
+}
+
+/* Container */
+.container-xl{ max-width:1200px; margin-left:auto; margin-right:auto; padding-left:1rem; padding-right:1rem }
+
+/* Utility for glass effect */
+.glass-card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.76), rgba(255,255,255,0.6));
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.64);
+  box-shadow: 0 18px 55px rgba(15,23,42,0.08);
+}
+
+.premium-card {
+  background: rgba(255,255,255,0.88);
+  border: 1px solid rgba(148,163,184,0.14);
+  box-shadow: 0 16px 40px rgba(15,23,42,0.05);
+}
+
+.gradient-ring {
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.16), 0 15px 35px rgba(29,60,122,0.26);
+}

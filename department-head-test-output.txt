@@ -1,0 +1,1593 @@
+
+   FAIL  Tests\Feature\DepartmentHeadDashboardTest
+  ✓ department head is scoped and filters by program and term                                                   28.22s  
+  ✓ unassigned department head is forbidden and other roles are unchanged                                        0.79s  
+  ⨯ department head read only surfaces remain department scoped                                                  1.01s  
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\DepartmentHeadDashboardTest > department head read only surfaces remain department scoped      
+  Expected: <!DOCTYPE html>\r\n
+<html lang="en">\r\n
+<head>\r\n
+    <meta charset="UTF-8">\r\n
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">\r\n
+    <meta name="csrf-token" content="EjYbpGZYiGfJBgT5dUPnCk5jcCqtcxaCmWfx7P3N">\r\n
+    <title>Tima-Ade University — Students — Department Head</title>\r\n
+    <meta name="description" content="Tima-Ade University School Management System — Modern, comprehensive school administration platform.">\r\n
+\r\n
+    <!-- Google Fonts -->\r\n
+    <link rel="preconnect" href="https://fonts.googleapis.com">\r\n
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\r\n
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">\r\n
+\r\n
+    <!-- Bootstrap 5 -->\r\n
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">\r\n
+\r\n
+    <!-- Bootstrap Icons -->\r\n
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">\r\n
+\r\n
+    <!-- DataTables -->\r\n
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.8/css/dataTables.bootstrap5.min.css">\r\n
+\r\n
+    <!-- Custom CSS -->\r\n
+    <link rel="stylesheet" href="http://localhost/css/app.css">\r\n
+    <script>\r\n
+        if (window.innerWidth >= 992 && window.localStorage.getItem('moon_sidebar_collapsed') === '1') {\r\n
+            document.documentElement.classList.add('sidebar-collapsed-preload');\r\n
+        }\r\n
+    </script>\r\n
+\r\n
+    <style>\r\n
+        /* Print-specific styles to produce clean reports */\r\n
+        @media print {\r\n
+            /* Hide navigation, sidebars, overlays, interactive controls */\r\n
+            .sidebar, .topbar, .sidebar-overlay, .sidebar-toggle-btn, .topbar-toggle,\r\n
+            .page-footer, .no-print, .btn, form .btn, .dropdown, .pagination,\r\n
+            .topbar-user, .topbar-btn, .sidebar-user, .nav-badge {\r\n
+                display: none !important;\r\n
+            }\r\n
+\r\n
+            /* Expand main content to full width */\r\n
+            .main-wrapper {\r\n
+                margin-left: 0 !important;\r\n
+                padding: 0 !important;\r\n
+                width: 100% !important;\r\n
+            }\r\n
+\r\n
+            .page-content, .page {\r\n
+                padding: 0.5rem !important;\r\n
+            }\r\n
+\r\n
+            /* Ensure readable colors and remove shadows */\r\n
+            body {\r\n
+                background: #FFFFFF !important;\r\n
+                color: #000000 !important;\r\n
+            }\r\n
+            .card {\r\n
+                border: 1px solid #ddd !important;\r\n
+                box-shadow: none !important;\r\n
+            }\r\n
+\r\n
+            /* Tables should be legible on paper */\r\n
+            table {\r\n
+                width: 100% !important;\r\n
+                border-collapse: collapse !important;\r\n
+                font-size: 12pt !important;\r\n
+            }\r\n
+            table th, table td {\r\n
+                border: 1px solid #ccc !important;\r\n
+                padding: 4px 6px !important;\r\n
+            }\r\n
+\r\n
+            /* Avoid page breaks inside important elements */\r\n
+            .card, .report, .table, .page {\r\n
+                page-break-inside: avoid !important;\r\n
+            }\r\n
+\r\n
+            /* Reduce header/footer noise and fix link appearance */\r\n
+            a[href]:after { content: "" !important; }\r\n
+\r\n
+            /* Prevent printing selection highlights */\r\n
+            * { -webkit-print-color-adjust: exact; color-adjust: exact; }\r\n
+        }\r\n
+    </style>\r\n
+\r\n
+    \r\n
+    <style>\r\n
+        /* Accessible focus outlines for keyboard users */\r\n
+        :focus {\r\n
+            outline: 3px solid #2563eb; /* blue focus ring */\r\n
+            outline-offset: 2px;\r\n
+        }\r\n
+\r\n
+        /* Consistent button styles */\r\n
+        .btn-primary {\r\n
+            background-color: #2563eb;\r\n
+            border-color: #2563eb;\r\n
+        }\r\n
+\r\n
+        /* Loading spinner small */\r\n
+        .spinner-border-sm-custom {\r\n
+            width: 1rem;\r\n
+            height: 1rem;\r\n
+            border-width: .15rem;\r\n
+        }\r\n
+\r\n
+        /* Table responsive improvements */\r\n
+        .table-responsive { overflow-x: auto; }\r\n
+\r\n
+        /* Improve pagination spacing */\r\n
+        .pagination { margin: 0.5rem 0; }\r\n
+\r\n
+        /* Reduced motion preference respect */\r\n
+        @media (prefers-reduced-motion: reduce) {\r\n
+            * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }\r\n
+        }\r\n
+    </style>\r\n
+</head>\r\n
+<body class="sidebar-collapsed-md">\r\n
+    <!-- Sidebar Overlay (Mobile) -->\r\n
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>\r\n
+\r\n
+    <div class="tima-ai-shell" data-ai-shell hidden>\r\n
+    <div class="tima-ai-backdrop" data-ai-close></div>\r\n
+    <aside class="tima-ai-panel" role="dialog" aria-modal="true" aria-labelledby="tima-ai-title">\r\n
+        <div class="tima-ai-panel-header">\r\n
+            <div class="d-flex align-items-center gap-2">\r\n
+                <span class="tima-ai-panel-mark" aria-hidden="true"><i class="bi bi-stars"></i></span>\r\n
+                <div><span class="tima-ai-eyebrow">Tima AI</span><h2 id="tima-ai-title">How can I help today?</h2></div>\r\n
+            </div>\r\n
+            <div class="d-flex gap-2 align-items-center">\r\n
+                <button type="button" class="tima-ai-settings" data-ai-settings title="Voice settings" aria-label="Voice settings" style="background: none; border: none; color: inherit; cursor: pointer; font-size: 1.2em;"><i class="bi bi-gear"></i></button>\r\n
+                <button type="button" class="tima-ai-close" data-ai-close aria-label="Close Tima AI"><i class="bi bi-x-lg"></i></button>\r\n
+            </div>\r\n
+        </div>\r\n
+        <div class="tima-ai-panel-body">\r\n
+            <p class="tima-ai-context"><i class="bi bi-shield-check me-1" aria-hidden="true"></i> Answers use your role and existing portal access.</p>\r\n
+            <div class="tima-ai-message tima-ai-message-system">Tima AI is ready to help you find your way around the university portal.</div>\r\n
+            <div class="tima-ai-mode" role="group" aria-label="Tima AI input mode">\r\n
+                <button type="button" class="active" data-ai-mode="text" aria-pressed="true"><i class="bi bi-keyboard me-1"></i> Type</button>\r\n
+                <button type="button" data-ai-mode="voice" aria-pressed="false"><i class="bi bi-mic me-1"></i> Talk</button>\r\n
+            </div>\r\n
+            <div class="tima-ai-suggestions tima-ai-panel-suggestions" aria-label="Suggested questions">\r\n
+                <button type="button" data-ai-suggestion="What should I pay attention to today?">Today's priorities</button>\r\n
+                <button type="button" data-ai-suggestion="Summarize the important updates on this page.">Important updates</button>\r\n
+                <button type="button" data-ai-suggestion="Help me find the information I need.">Find information</button>\r\n
+            </div>\r\n
+            <div class="tima-ai-response" data-ai-response role="status" aria-live="polite" hidden></div>\r\n
+            <div class="tima-ai-status" data-ai-status role="status" aria-live="polite">Ready</div>\r\n
+            <button type="button" class="tima-ai-stop" data-ai-stop hidden><i class="bi bi-stop-circle me-1"></i> Stop</button>\r\n
+        </div>\r\n
+        <form class="tima-ai-form" data-ai-form>\r\n
+            <label class="visually-hidden" for="tima-ai-input">Ask Tima AI</label>\r\n
+            <input id="tima-ai-input" type="text" maxlength="500" placeholder="Ask about this portal page..." autocomplete="off">\r\n
+            <button type="button" class="tima-ai-mic" data-ai-mic aria-label="Start voice input" hidden><i class="bi bi-mic"></i></button>\r\n
+            <button type="submit" aria-label="Send question"><i class="bi bi-arrow-up"></i></button>\r\n
+        </form>\r\n
+        <div class="tima-ai-settings-panel" data-ai-settings-panel hidden style="padding: 1rem; border-top: 1px solid #e0e0e0; background: #fafafa; border-radius: 0 0 8px 8px;">\r\n
+            <div style="margin-bottom: 1rem;">\r\n
+                <label for="tima-ai-voice-select" style="display: block; font-weight: 500; margin-bottom: 0.5rem; font-size: 0.9em;">Voice</label>\r\n
+                <select id="tima-ai-voice-select" data-ai-voice-select style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px; font-size: 0.9em;">\r\n
+                    <option value="">Loading voices...</option>\r\n
+                </select>\r\n
+            </div>\r\n
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">\r\n
+                <div>\r\n
+                    <label for="tima-ai-rate" style="display: block; font-weight: 500; margin-bottom: 0.5rem; font-size: 0.9em;">Speed</label>\r\n
+                    <input type="range" id="tima-ai-rate" data-ai-rate min="0.5" max="2" step="0.1" value="1" style="width: 100%;">\r\n
+                    <span data-ai-rate-display style="font-size: 0.8em; color: #666;">1.0x</span>\r\n
+                </div>\r\n
+                <div>\r\n
+                    <label for="tima-ai-pitch" style="display: block; font-weight: 500; margin-bottom: 0.5rem; font-size: 0.9em;">Pitch</label>\r\n
+                    <input type="range" id="tima-ai-pitch" data-ai-pitch min="0.5" max="2" step="0.1" value="1" style="width: 100%;">\r\n
+                    <span data-ai-pitch-display style="font-size: 0.8em; color: #666;">1.0</span>\r\n
+                </div>\r\n
+            </div>\r\n
+            <div style="margin-bottom: 1rem;">\r\n
+                <label for="tima-ai-volume" style="display: block; font-weight: 500; margin-bottom: 0.5rem; font-size: 0.9em;">Volume</label>\r\n
+                <input type="range" id="tima-ai-volume" data-ai-volume min="0" max="1" step="0.1" value="1" style="width: 100%;">\r\n
+                <span data-ai-volume-display style="font-size: 0.8em; color: #666;">100%</span>\r\n
+            </div>\r\n
+            <button type="button" data-ai-test-voice style="width: 100%; padding: 0.5rem; background: #2196F3; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.9em;">Test Voice</button>\r\n
+        </div>\r\n
+        <p class="tima-ai-disclaimer">Tima AI only answers from information your existing role can access.</p>\r\n
+    </aside>\r\n
+</div>\r\n
+<button type="button" class="tima-ai-fab" data-ai-open aria-label="Open Tima AI"><i class="bi bi-stars" aria-hidden="true"></i><span>Tima AI</span></button>\r\n
+\r\n
+    <!-- ===== SIDEBAR ===== -->\r\n
+    <aside class="sidebar" id="sidebar">\r\n
+        <div class="sidebar-header">\r\n
+            <div class="brand-logo">\r\n
+                <img src="http://localhost/images/tima-ade-university-logo-premium.svg" alt="Tima-Ade University logo" class="brand-logo-image">\r\n
+                <div class="brand-text">\r\n
+                    <span class="brand-name">Tima-Ade University</span>\r\n
+                </div>\r\n
+            </div>\r\n
+            <button class="sidebar-toggle-btn" id="sidebarToggleBtn" type="button" title="Toggle Sidebar">\r\n
+                <i class="bi bi-layout-sidebar-reverse"></i>\r\n
+            </button>\r\n
+        </div>\r\n
+\r\n
+        <div class="sidebar-user">\r\n
+            <img src="https://ui-avatars.com/api/?name=Delphine+Heidenreich&amp;background=016ED5&amp;color=fff&amp;size=128" alt="Avatar" class="sidebar-avatar">\r\n
+            <div class="sidebar-user-info">\r\n
+                <span class="sidebar-user-name">Delphine Heidenreich</span>\r\n
+                <span class="sidebar-user-role badge-role-department_head">\r\n
+                    Department Head\r\n
+                </span>\r\n
+            </div>\r\n
+        </div>\r\n
+\r\n
+        <nav class="sidebar-nav">\r\n
+            <div class="nav-label">Main Menu</div>\r\n
+\r\n
+            <a href="http://localhost/messages" class="nav-link ">\r\n
+                <i class="bi bi-chat-square-text"></i>\r\n
+                <span>Tima Chat</span>\r\n
+            </a>\r\n
+\r\n
+            <a href="http://localhost" class="nav-link" target="_blank" style="color: #60a5fa;">\r\n
+                <i class="bi bi-globe"></i>\r\n
+                <span>Public Website</span>\r\n
+                <i class="bi bi-box-arrow-up-right ms-auto small"></i>\r\n
+            </a>\r\n
+\r\n
+            \r\n
+            \r\n
+            \r\n
+                            <div class="nav-label">Department Oversight</div>\r\n
+                <a href="http://localhost/dashboard" class="nav-link "><i class="bi bi-speedometer2"></i><span>Department Dashboard</span></a>\r\n
+                <a href="http://localhost/department-head/programs" class="nav-link "><i class="bi bi-mortarboard"></i><span>Programs</span></a>\r\n
+                <a href="http://localhost/department-head/courses" class="nav-link "><i class="bi bi-book"></i><span>Courses</span></a>\r\n
+                <a href="http://localhost/department-head/sections" class="nav-link "><i class="bi bi-collection-play"></i><span>Sections</span></a>\r\n
+                <a href="http://localhost/department-head/students" class="nav-link active"><i class="bi bi-people"></i><span>Students</span></a>\r\n
+                <a href="http://localhost/department-head/instructors" class="nav-link "><i class="bi bi-person-workspace"></i><span>Instructors</span></a>\r\n
+                <a href="http://localhost/department-head/academic-performance" class="nav-link "><i class="bi bi-graph-up"></i><span>Academic Performance</span></a>\r\n
+                <a href="http://localhost/department-head/advising" class="nav-link "><i class="bi bi-person-check"></i><span>Advising</span></a>\r\n
+                <a href="http://localhost/department-head/analytics" class="nav-link "><i class="bi bi-bar-chart"></i><span>Analytics</span></a>\r\n
+                <a href="http://localhost/department-head/reports" class="nav-link "><i class="bi bi-file-earmark-text"></i><span>Reports</span></a>\r\n
+            \r\n
+            \r\n
+            \r\n
+            \r\n
+                            <div class="nav-label">Academics</div>\r\n
+            \r\n
+            \r\n
+            \r\n
+            \r\n
+            \r\n
+            \r\n
+                            <a href="http://localhost/notices" class="nav-link ">\r\n
+                    <i class="bi bi-megaphone"></i>\r\n
+                    <span>Notices</span>\r\n
+                </a>\r\n
+            \r\n
+            \r\n
+            \r\n
+            \r\n
+                    </nav>\r\n
+\r\n
+        <div class="sidebar-footer">\r\n
+            <form method="POST" action="http://localhost/logout">\r\n
+                <input type="hidden" name="_token" value="EjYbpGZYiGfJBgT5dUPnCk5jcCqtcxaCmWfx7P3N" autocomplete="off">                <button type="submit" class="nav-link logout-btn">\r\n
+                    <i class="bi bi-box-arrow-left"></i>\r\n
+                    <span>Logout</span>\r\n
+                </button>\r\n
+            </form>\r\n
+        </div>\r\n
+    </aside>\r\n
+\r\n
+    <script>\r\n
+        (function () {\r\n
+            try {\r\n
+                var sidebar = document.getElementById('sidebar');\r\n
+                var savedScrollTop = Number.parseFloat(sessionStorage.getItem('tima_ade_sidebar_scroll_top') || '');\r\n
+\r\n
+                if (sidebar && Number.isFinite(savedScrollTop)) {\r\n
+                    sidebar.style.scrollBehavior = 'auto';\r\n
+                    sidebar.scrollTop = savedScrollTop;\r\n
+                    sidebar.dataset.sidebarScrollRestored = 'true';\r\n
+                }\r\n
+            } catch (error) {\r\n
+                // Storage may be unavailable; the regular app script remains the fallback.\r\n
+            }\r\n
+        }());\r\n
+    </script>\r\n
+\r\n
+    <!-- ===== MAIN CONTENT ===== -->\r\n
+    <div class="main-wrapper" id="mainWrapper">\r\n
+\r\n
+        <!-- Top Navigation Bar -->\r\n
+        <header class="topbar">\r\n
+            <div class="topbar-left">\r\n
+                <button class="topbar-toggle" id="topbarToggle" type="button">\r\n
+                    <i class="bi bi-list"></i>\r\n
+                </button>\r\n
+                <nav aria-label="breadcrumb" class="d-none d-md-block">\r\n
+                    <ol class="breadcrumb mb-0">\r\n
+                        <li class="breadcrumb-item">\r\n
+                            <a href="http://localhost/dashboard">Home</a>\r\n
+                        </li>\r\n
+                            <li class="breadcrumb-item"><a href="http://localhost/dashboard">Scoped Computing Department</a></li>\r\n
+    <li class="breadcrumb-item active">Students</li>\r\n
+                    </ol>\r\n
+                </nav>\r\n
+            </div>\r\n
+\r\n
+            <div class="topbar-right">\r\n
+                <div class="topbar-search">\r\n
+                    <div class="dashboard-search-wrapper">\r\n
+    <form id="dashboard-search-form" action="http://localhost/api/search" method="GET" style="width: 100%;">\r\n
+        <div style="position: relative; display: flex; align-items: center;">\r\n
+            <label for="dashboard-search-input" class="visually-hidden">Search dashboard</label>\r\n
+            <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">\r\n
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>\r\n
+            </svg>\r\n
+            <input\r\n
+                type="search"\r\n
+                id="dashboard-search-input"\r\n
+                name="q"\r\n
+                class="form-control dashboard-search-input"\r\n
+                placeholder="Search dashboard..."\r\n
+                aria-label="Search dashboard"\r\n
+                autocomplete="off"\r\n
+                minlength="2"\r\n
+                maxlength="100"\r\n
+            >\r\n
+            <button\r\n
+                type="button"\r\n
+                id="dashboard-search-clear"\r\n
+                class="btn-search-clear"\r\n
+                aria-label="Clear search"\r\n
+                style="display: none;"\r\n
+            >\r\n
+                <svg class="search-clear-icon" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">\r\n
+                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path>\r\n
+                </svg>\r\n
+            </button>\r\n
+        </div>\r\n
+\r\n
+        <div\r\n
+            id="dashboard-search-results"\r\n
+            class="search-results-dropdown"\r\n
+            role="listbox"\r\n
+            aria-label="Search results"\r\n
+            style="display: none;"\r\n
+        >\r\n
+            <div id="dashboard-search-results-list" style="max-height: 300px; overflow-y: auto;"></div>\r\n
+            <div id="dashboard-search-no-results" class="px-3 py-3 text-center text-muted" style="display: none;">\r\n
+                <p class="small">No results found. Try different keywords.</p>\r\n
+            </div>\r\n
+            <div id="dashboard-search-loading" class="px-3 py-3 text-center text-muted" style="display: none;">\r\n
+                <div class="spinner-border spinner-border-sm" role="status">\r\n
+                    <span class="visually-hidden">Loading...</span>\r\n
+                </div>\r\n
+                <p class="small mt-2">Searching...</p>\r\n
+            </div>\r\n
+            <div id="dashboard-search-error" class="px-3 py-3 text-center text-danger" style="display: none;">\r\n
+                <p class="small">Error searching. Please try again.</p>\r\n
+            </div>\r\n
+        </div>\r\n
+    </form>\r\n
+</div>\r\n
+\r\n
+<style>\r\n
+    .dashboard-search-wrapper {\r\n
+        width: 100%;\r\n
+        position: relative;\r\n
+    }\r\n
+\r\n
+    .dashboard-search-input {\r\n
+        padding-left: 2.25rem;\r\n
+        padding-right: 2.25rem;\r\n
+        font-size: 0.875rem;\r\n
+        border: 1px solid var(--border-color);\r\n
+        background-color: var(--bg-primary);\r\n
+        min-height: 38px;\r\n
+    }\r\n
+\r\n
+    .dashboard-search-input:focus {\r\n
+        border-color: var(--navy-600);\r\n
+        background-color: #ffffff;\r\n
+        box-shadow: 0 0 0 3px rgba(61, 106, 80, 0.1);\r\n
+    }\r\n
+\r\n
+    .dashboard-search-input::placeholder {\r\n
+        color: var(--text-light);\r\n
+    }\r\n
+\r\n
+    .search-icon {\r\n
+        position: absolute;\r\n
+        left: 0.65rem;\r\n
+        width: 18px;\r\n
+        height: 18px;\r\n
+        color: var(--text-light);\r\n
+        pointer-events: none;\r\n
+    }\r\n
+\r\n
+    .btn-search-clear {\r\n
+        position: absolute;\r\n
+        right: 0.65rem;\r\n
+        background: transparent;\r\n
+        border: none;\r\n
+        cursor: pointer;\r\n
+        padding: 0.35rem;\r\n
+        color: var(--text-muted);\r\n
+        transition: color var(--transition-speed);\r\n
+        display: flex;\r\n
+        align-items: center;\r\n
+        justify-content: center;\r\n
+    }\r\n
+\r\n
+    .btn-search-clear:hover {\r\n
+        color: var(--text-main);\r\n
+    }\r\n
+\r\n
+    .btn-search-clear:focus {\r\n
+        outline: 2px solid var(--navy-600);\r\n
+        outline-offset: 2px;\r\n
+    }\r\n
+\r\n
+    .search-clear-icon {\r\n
+        width: 18px;\r\n
+        height: 18px;\r\n
+    }\r\n
+\r\n
+    .search-results-dropdown {\r\n
+        position: absolute;\r\n
+        top: 100%;\r\n
+        left: 0;\r\n
+        right: 0;\r\n
+        margin-top: 0.5rem;\r\n
+        background: var(--bg-surface);\r\n
+        border: 1px solid var(--border-color);\r\n
+        border-radius: var(--radius-md);\r\n
+        box-shadow: var(--shadow-elevated);\r\n
+        z-index: 1050;\r\n
+    }\r\n
+\r\n
+    .search-result-item {\r\n
+        display: flex;\r\n
+        align-items: center;\r\n
+        padding: 0.75rem 1rem;\r\n
+        cursor: pointer;\r\n
+        transition: background-color var(--transition-speed);\r\n
+        border-bottom: 1px solid var(--border-color);\r\n
+    }\r\n
+\r\n
+    .search-result-item:last-child {\r\n
+        border-bottom: none;\r\n
+    }\r\n
+\r\n
+    .search-result-item:hover,\r\n
+    .search-result-item.selected {\r\n
+        background-color: var(--bg-primary);\r\n
+    }\r\n
+\r\n
+    .search-result-item:focus-visible {\r\n
+        outline: 2px solid var(--navy-600);\r\n
+        outline-offset: -2px;\r\n
+    }\r\n
+\r\n
+    .search-result-icon {\r\n
+        width: 20px;\r\n
+        height: 20px;\r\n
+        margin-right: 0.75rem;\r\n
+        flex-shrink: 0;\r\n
+        color: var(--text-muted);\r\n
+    }\r\n
+\r\n
+    .search-result-content {\r\n
+        flex: 1;\r\n
+        min-width: 0;\r\n
+    }\r\n
+\r\n
+    .search-result-title {\r\n
+        font-weight: 500;\r\n
+        color: var(--text-main);\r\n
+        overflow: hidden;\r\n
+        text-overflow: ellipsis;\r\n
+        white-space: nowrap;\r\n
+        font-size: 0.875rem;\r\n
+    }\r\n
+\r\n
+    .search-result-subtitle {\r\n
+        font-size: 0.8rem;\r\n
+        color: var(--text-muted);\r\n
+        overflow: hidden;\r\n
+        text-overflow: ellipsis;\r\n
+        white-space: nowrap;\r\n
+        margin-top: 0.25rem;\r\n
+    }\r\n
+</style>\r\n
+\r\n
+<script>\r\n
+    document.addEventListener('DOMContentLoaded', function() {\r\n
+        const searchInput = document.getElementById('dashboard-search-input');\r\n
+        const searchForm = document.getElementById('dashboard-search-form');\r\n
+        const clearBtn = document.getElementById('dashboard-search-clear');\r\n
+        const resultsContainer = document.getElementById('dashboard-search-results');\r\n
+        const resultsList = document.getElementById('dashboard-search-results-list');\r\n
+        const noResults = document.getElementById('dashboard-search-no-results');\r\n
+        const loading = document.getElementById('dashboard-search-loading');\r\n
+        const error = document.getElementById('dashboard-search-error');\r\n
+\r\n
+        if (!searchInput || !searchForm || !clearBtn || !resultsContainer || !resultsList || !noResults || !loading || !error) {\r\n
+            return;\r\n
+        }\r\n
+\r\n
+        let searchTimeout;\r\n
+        let selectedIndex = -1;\r\n
+        let results = [];\r\n
+\r\n
+        function getIconSvg(type) {\r\n
+            const icons = {\r\n
+                user: '<svg class="search-result-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>',\r\n
+                'user-graduate': '<svg class="search-result-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5zm0 11c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>',\r\n
+                book: '<svg class="search-result-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM9 4h6v12H9V4z"/></svg>',\r\n
+                building: '<svg class="search-result-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.31-8.86c-1.48-.84-2.61-2.53-2.61-4.44 0-2.97 2.64-5.44 5.92-5.44s5.92 2.47 5.92 5.44c0 1.91-1.13 3.6-2.61 4.44.36 1.02.38 2.143 0 3.44-.76 1.88-2.38 3.81-3.44 5.46-1.41 2.26-3.42 3.76-3.42 3.76S7.48 15.46 6.07 13.21c-1.07-1.65-2.69-3.58-3.44-5.46-.357-1.297-.357-2.42 0-3.44zM12 6c-1.6 0-2.904 1.306-2.904 2.926 0 1.62 1.304 2.926 2.904 2.926s2.904-1.306 2.904-2.926C14.904 7.306 13.6 6 12 6z"/></svg>',\r\n
+                calendar: '<svg class="search-result-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg>',\r\n
+                pencil: '<svg class="search-result-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z"/></svg>',\r\n
+                assignment: '<svg class="search-result-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H6v-2h10v2zm0-4H6v-2h10v2zm0-4H6V8h10v2z"/></svg>',\r\n
+                'file-text': '<svg class="search-result-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H6v-2h10v2zm0-4H6v-2h10v2zm0-4H6V8h10v2z"/></svg>',\r\n
+                default: '<svg class="search-result-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>'\r\n
+            };\r\n
+            return icons[type] || icons.default;\r\n
+        }\r\n
+\r\n
+        function escapeHtml(text) {\r\n
+            const map = {\r\n
+                '&': '&amp;',\r\n
+                '<': '&lt;',\r\n
+                '>': '&gt;',\r\n
+                '"': '&quot;',\r\n
+                "'": '&#039;'\r\n
+            };\r\n
+            return String(text || '').replace(/[&<>"']/g, (m) => map[m]);\r\n
+        }\r\n
+\r\n
+        function hideResults() {\r\n
+            resultsContainer.style.display = 'none';\r\n
+            selectedIndex = -1;\r\n
+            noResults.style.display = 'none';\r\n
+            loading.style.display = 'none';\r\n
+            error.style.display = 'none';\r\n
+        }\r\n
+\r\n
+        function updateSelected(items) {\r\n
+            items.forEach((item, index) => {\r\n
+                item.classList.toggle('selected', index === selectedIndex);\r\n
+            });\r\n
+\r\n
+            if (selectedIndex >= 0 && items[selectedIndex]) {\r\n
+                items[selectedIndex].focus();\r\n
+            }\r\n
+        }\r\n
+\r\n
+        clearBtn.addEventListener('click', function(event) {\r\n
+            event.preventDefault();\r\n
+            searchInput.value = '';\r\n
+            clearBtn.style.display = 'none';\r\n
+            resultsList.innerHTML = '';\r\n
+            hideResults();\r\n
+            searchInput.focus();\r\n
+        });\r\n
+\r\n
+        searchInput.addEventListener('input', function() {\r\n
+            const query = this.value.trim();\r\n
+            clearBtn.style.display = query ? 'block' : 'none';\r\n
+            clearTimeout(searchTimeout);\r\n
+\r\n
+            if (query.length < 2) {\r\n
+                resultsList.innerHTML = '';\r\n
+                hideResults();\r\n
+                return;\r\n
+            }\r\n
+\r\n
+            loading.style.display = 'block';\r\n
+            noResults.style.display = 'none';\r\n
+            error.style.display = 'none';\r\n
+            resultsContainer.style.display = 'block';\r\n
+            selectedIndex = -1;\r\n
+\r\n
+            searchTimeout = setTimeout(() => {\r\n
+                fetch(`${searchForm.action}?q=${encodeURIComponent(query)}`)\r\n
+                    .then((response) => response.json())\r\n
+                    .then((data) => {\r\n
+                        loading.style.display = 'none';\r\n
+                        results = data.results || [];\r\n
+\r\n
+                        if (!results.length) {\r\n
+                            resultsList.innerHTML = '';\r\n
+                            noResults.style.display = 'block';\r\n
+                            return;\r\n
+                        }\r\n
+\r\n
+                        noResults.style.display = 'none';\r\n
+                        resultsList.innerHTML = results.map((result, index) => `\r\n
+                            <div class="search-result-item" role="option" tabindex="0" data-index="${index}">\r\n
+                                ${getIconSvg(result.type)}\r\n
+                                <div class="search-result-content">\r\n
+                                    <div class="search-result-title">${escapeHtml(result.title)}</div>\r\n
+                                    <div class="search-result-subtitle">${escapeHtml(result.subtitle)}</div>\r\n
+                                </div>\r\n
+                            </div>\r\n
+                        `).join('');\r\n
+\r\n
+                        const items = resultsList.querySelectorAll('.search-result-item');\r\n
+                        items.forEach((item, index) => {\r\n
+                            item.addEventListener('click', () => {\r\n
+                                const selected = results[index];\r\n
+                                if (selected && selected.url) {\r\n
+                                    window.location.href = selected.url;\r\n
+                                }\r\n
+                            });\r\n
+                            item.addEventListener('keydown', (event) => {\r\n
+                                if (event.key === 'Enter' || event.key === ' ') {\r\n
+                                    event.preventDefault();\r\n
+                                    item.click();\r\n
+                                }\r\n
+                            });\r\n
+                        });\r\n
+                    })\r\n
+                    .catch(() => {\r\n
+                        loading.style.display = 'none';\r\n
+                        error.style.display = 'block';\r\n
+                    });\r\n
+            }, 300);\r\n
+        });\r\n
+\r\n
+        searchInput.addEventListener('keydown', function(event) {\r\n
+            const items = resultsList.querySelectorAll('.search-result-item');\r\n
+            if (!items.length) return;\r\n
+\r\n
+            if (event.key === 'ArrowDown') {\r\n
+                event.preventDefault();\r\n
+                selectedIndex = Math.min(selectedIndex + 1, items.length - 1);\r\n
+                updateSelected(items);\r\n
+            } else if (event.key === 'ArrowUp') {\r\n
+                event.preventDefault();\r\n
+                selectedIndex = Math.max(selectedIndex - 1, 0);\r\n
+                updateSelected(items);\r\n
+            } else if (event.key === 'Enter' && selectedIndex >= 0) {\r\n
+                event.preventDefault();\r\n
+                items[selectedIndex].click();\r\n
+            } else if (event.key === 'Escape') {\r\n
+                event.preventDefault();\r\n
+                hideResults();\r\n
+            }\r\n
+        });\r\n
+\r\n
+        document.addEventListener('click', function(event) {\r\n
+            if (!event.target.closest('.dashboard-search-wrapper')) {\r\n
+                hideResults();\r\n
+            }\r\n
+        });\r\n
+    });\r\n
+</script>\r\n
+\r\n
+                </div>\r\n
+\r\n
+                <!-- Quick Actions for Admins & Teachers -->\r\n
+                \r\n
+                <!-- Notifications Dropdown (user-scoped) -->\r\n
+                \r\n
+                <div class="dropdown me-2" id="notifications">\r\n
+                    <button type="button" class="topbar-btn position-relative" data-bs-toggle="dropdown" title="Notifications" aria-label="Notifications" aria-expanded="false">\r\n
+                        <i class="bi bi-bell"></i>\r\n
+                                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">1</span>\r\n
+                                            </button>\r\n
+\r\n
+                    <ul class="dropdown-menu dropdown-menu-end shadow-lg" style="min-width: 360px;">\r\n
+                        <li class="px-3 py-2 d-flex justify-content-between align-items-center">\r\n
+                            <div class="fw-semibold">Notifications</div>\r\n
+                            <div class="d-flex gap-2">\r\n
+                                <form method="POST" action="http://localhost/notifications/read-all">\r\n
+                                    <input type="hidden" name="_token" value="EjYbpGZYiGfJBgT5dUPnCk5jcCqtcxaCmWfx7P3N" autocomplete="off">                                    <button type="submit" class="btn btn-sm btn-link">Mark all read</button>\r\n
+                                </form>\r\n
+                                <a href="http://localhost/notifications" class="btn btn-sm btn-link">View all</a>\r\n
+                            </div>\r\n
+                        </li>\r\n
+                        <li><hr class="dropdown-divider my-1"></li>\r\n
+\r\n
+                                                    <li>\r\n
+                                <div class="dropdown-item d-flex justify-content-between align-items-start py-2">\r\n
+                                    <div class="me-2" style="flex:1">\r\n
+                                        <div class="fw-semibold small text-dark text-primary">Academic Term Schedule Published</div>\r\n
+                                        <div class="text-muted small">The complete university timetable and exam schedule have been finalized.</div>\r\n
+                                        <div class="text-muted x-small mt-1" style="font-size:0.72rem">1 second ago</div>\r\n
+                                    </div>\r\n
+\r\n
+                                    <div class="ms-2 text-end">\r\n
+                                                                                    <span class="badge bg-secondary">&nbsp;</span>\r\n
+                                                                            </div>\r\n
+                                </div>\r\n
+                            </li>\r\n
+                                            </ul>\r\n
+                </div>\r\n
+\r\n
+                <!-- Current date opens the existing monthly calendar -->\r\n
+                <button type="button" class="topbar-date" data-bs-toggle="modal" data-bs-target="#dashboardCalendarModal" aria-label="Open monthly calendar">\r\n
+                    <i class="bi bi-calendar3 me-2" aria-hidden="true"></i>\r\n
+                    <span>\r\n
+                        <small class="topbar-date-day">Saturday</small>\r\n
+                        <strong>Sep 12, 2026</strong>\r\n
+                    </span>\r\n
+                </button>\r\n
+\r\n
+                <!-- User Profile Dropdown -->\r\n
+                <div class="dropdown ms-2">\r\n
+                    <button class="topbar-user" data-bs-toggle="dropdown" aria-label="Open user profile menu" aria-expanded="false">\r\n
+                        <img src="https://ui-avatars.com/api/?name=Delphine+Heidenreich&amp;background=016ED5&amp;color=fff&amp;size=128" alt="Delphine Heidenreich avatar" class="topbar-avatar">\r\n
+                        <span class="d-none d-md-inline">Delphine</span>\r\n
+                        <i class="bi bi-chevron-down ms-1 small"></i>\r\n
+                    </button>\r\n
+                    <ul class="dropdown-menu dropdown-menu-end shadow-lg">\r\n
+                        <li>\r\n
+                            <div class="dropdown-header-user">\r\n
+                                <img src="https://ui-avatars.com/api/?name=Delphine+Heidenreich&amp;background=016ED5&amp;color=fff&amp;size=128" alt="Avatar" class="dropdown-avatar">\r\n
+                                <div>\r\n
+                                    <div class="fw-semibold">Delphine Heidenreich</div>\r\n
+                                    <div class="small text-muted">wschumm@example.com</div>\r\n
+                                </div>\r\n
+                            </div>\r\n
+                        </li>\r\n
+                        <li><hr class="dropdown-divider"></li>\r\n
+                        <li>\r\n
+                            <a class="dropdown-item" href="http://localhost/profile">\r\n
+                                <i class="bi bi-person me-2 text-primary"></i>My Profile\r\n
+                            </a>\r\n
+                        </li>\r\n
+                        <li>\r\n
+                            <a class="dropdown-item" href="http://localhost/profile#security">\r\n
+                                <i class="bi bi-shield-lock me-2 text-warning"></i>Change Password\r\n
+                            </a>\r\n
+                        </li>\r\n
+                        <li><hr class="dropdown-divider"></li>\r\n
+                        <li>\r\n
+                            <form method="POST" action="http://localhost/logout">\r\n
+                                <input type="hidden" name="_token" value="EjYbpGZYiGfJBgT5dUPnCk5jcCqtcxaCmWfx7P3N" autocomplete="off">                                <button type="submit" class="dropdown-item text-danger">\r\n
+                                    <i class="bi bi-box-arrow-right me-2"></i>Logout\r\n
+                                </button>\r\n
+                            </form>\r\n
+                        </li>\r\n
+                    </ul>\r\n
+                </div>\r\n
+            </div>\r\n
+        </header>\r\n
+\r\n
+        <div class="modal fade" id="dashboardCalendarModal" tabindex="-1" aria-labelledby="dashboardCalendarModalLabel" aria-hidden="true">\r\n
+            <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">\r\n
+                <div class="modal-content dashboard-calendar-modal-content">\r\n
+                    <div class="modal-header">\r\n
+                        <h2 class="modal-title fs-5" id="dashboardCalendarModalLabel">Monthly calendar</h2>\r\n
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close monthly calendar"></button>\r\n
+                    </div>\r\n
+                    <div class="modal-body">\r\n
+                        <div class="dashboard-calendar-wrapper">\r\n
+    <div class="dashboard-calendar-shell">\r\n
+        <div class="dashboard-calendar-header">\r\n
+            <div>\r\n
+                <span class="dashboard-calendar-kicker">Academic schedule</span>\r\n
+                <h2 class="dashboard-calendar-title" id="calendar-month-year">\r\n
+                    \r\n
+                </h2>\r\n
+            </div>\r\n
+\r\n
+            <div class="dashboard-calendar-controls">\r\n
+                <button id="calendar-today-btn" class="dashboard-calendar-btn dashboard-calendar-btn-primary" aria-label="Go to today">\r\n
+                    Today\r\n
+                </button>\r\n
+                <button id="calendar-prev-btn" class="dashboard-calendar-btn dashboard-calendar-btn-nav" aria-label="Previous month">\r\n
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">\r\n
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>\r\n
+                    </svg>\r\n
+                </button>\r\n
+                <button id="calendar-next-btn" class="dashboard-calendar-btn dashboard-calendar-btn-nav" aria-label="Next month">\r\n
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">\r\n
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>\r\n
+                    </svg>\r\n
+                </button>\r\n
+            </div>\r\n
+        </div>\r\n
+\r\n
+        <div class="dashboard-calendar-weekdays" aria-hidden="true">\r\n
+            <div>Sun</div>\r\n
+            <div>Mon</div>\r\n
+            <div>Tue</div>\r\n
+            <div>Wed</div>\r\n
+            <div>Thu</div>\r\n
+            <div>Fri</div>\r\n
+            <div>Sat</div>\r\n
+        </div>\r\n
+\r\n
+        <div class="dashboard-calendar-grid" id="calendar-grid">\r\n
+            \r\n
+        </div>\r\n
+\r\n
+        <div id="calendar-loading" class="dashboard-calendar-loading hidden">\r\n
+            <div class="dashboard-calendar-spinner" aria-hidden="true"></div>\r\n
+            <p>Loading calendar...</p>\r\n
+        </div>\r\n
+\r\n
+        <div id="calendar-error" class="dashboard-calendar-error hidden">\r\n
+            Failed to load calendar. Please refresh the page.\r\n
+        </div>\r\n
+    </div>\r\n
+\r\n
+    <div id="calendar-day-events" class="dashboard-calendar-events hidden">\r\n
+        <div class="dashboard-calendar-events-panel">\r\n
+            <h3 class="dashboard-calendar-events-title" id="calendar-events-title">\r\n
+                \r\n
+            </h3>\r\n
+            <div id="calendar-events-list" class="dashboard-calendar-events-list">\r\n
+                \r\n
+            </div>\r\n
+            <div id="calendar-no-events" class="dashboard-calendar-empty hidden">\r\n
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">\r\n
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>\r\n
+                </svg>\r\n
+                <p>No events scheduled for this day.</p>\r\n
+            </div>\r\n
+        </div>\r\n
+    </div>\r\n
+</div>\r\n
+\r\n
+<style>\r\n
+    .dashboard-calendar-wrapper {\r\n
+        display: flex;\r\n
+        flex-direction: column;\r\n
+        gap: 1.25rem;\r\n
+        color: var(--text-main);\r\n
+    }\r\n
+\r\n
+    .dashboard-calendar-shell {\r\n
+        background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(248,250,252,0.96));\r\n
+        border: 1px solid var(--border-color);\r\n
+        border-radius: var(--radius-xl);\r\n
+        box-shadow: var(--shadow-card);\r\n
+        padding: 1.25rem;\r\n
+    }\r\n
+\r\n
+    .dashboard-calendar-header {\r\n
+        display: flex;\r\n
+        align-items: center;\r\n
+        justify-content: space-between;\r\n
+        gap: 1rem;\r\n
+        margin-bottom: 1.25rem;\r\n
+        padding-bottom: 1rem;\r\n
+        border-bottom: 1px solid var(--border-color);\r\n
+    }\r\n
+\r\n
+    .dashboard-calendar-kicker {\r\n
+        display: inline-block;\r\n
+        margin-bottom: 0.4rem;\r\n
+        font-size: 0.7rem;\r\n
+        font-weight: 800;\r\n
+        letter-spacing: 0.14em;\r\n
+        text-transform: uppercase;\r\n
+        color: var(--crimson-700);\r\n
+    }\r\n
+\r\n
+    .dashboard-calendar-title {\r\n
+        margin: 0;\r\n
+        font-size: clamp(1.25rem, 2vw, 1.75rem);\r\n
+        font-weight: 800;\r\n
+        letter-spacing: -0.03em;\r\n
+        color: var(--navy-900);\r\n
+    }\r\n
+\r\n
+    .dashboard-calendar-controls {\r\n
+        display: flex;\r\n
+        align-items: center;\r\n
+        gap: 0.5rem;\r\n
+        flex-wrap: wrap;\r\n
+    }\r\n
+\r\n
+    .dashboard-calendar-btn {\r\n
+        border: 1px solid var(--border-color);\r\n
+        background: var(--bg-surface);\r\n
+        color: var(--navy-700);\r\n
+        border-radius: var(--radius-md);\r\n
+        min-height: 38px;\r\n
+        cursor: pointer;\r\n
+        transition: all var(--transition-speed);\r\n
+    }\r\n
+\r\n
+    .dashboard-calendar-btn:hover {\r\n
+        background: var(--bg-primary);\r\n
+        border-color: var(--navy-600);\r\n
+        color: var(--navy-800);\r\n
+    }\r\n
+\r\n
+    .dashboard-calendar-btn:focus-visible {\r\n
+        outline: 2px solid var(--navy-600);\r\n
+        outline-offset: 2px;\r\n
+    }\r\n
+\r\n
+    .dashboard-calendar-btn-primary {\r\n
+        padding: 0.5rem 0.9rem;\r\n
+        font-size: 0.8rem;\r\n
+        font-weight: 700;\r\n
+        background: rgba(15, 118, 110, 0.08);\r\n
+        border-color: rgba(15, 118, 110, 0.22);\r\n
+        color: var(--navy-800);\r\n
+    }\r\n
+\r\n
+    .dashboard-calendar-btn-primary:hover {\r\n
+        background: rgba(15, 118, 110, 0.12);\r\n
+    }\r\n
+\r\n
+    .dashboard-calendar-btn-nav {\r\n
+        width: 38px;\r\n
+        height: 38px;\r\n
+        display: flex;\r\n
+        align-items: center;\r\n
+        justify-content: center;\r\n
+    }\r\n
+\r\n
+    .dashboard-calendar-btn-nav svg {\r\n
+        width: 18px;\r\n
+        height: 18px;\r\n
+    }\r\n
+\r\n
+    .dashboard-calendar-weekdays,\r\n
+    .dashboard-calendar-grid {\r\n
+        display: grid;\r\n
+        grid-template-columns: repeat(7, minmax(0, 1fr));\r\n
+        gap: 0.55rem;\r\n
+    }\r\n
+\r\n
+    .dashboard-calendar-weekdays {\r\n
+        margin-bottom: 0.7rem;\r\n
+    }\r\n
+\r\n
+    .dashboard-calendar-weekdays div {\r\n
+        text-align: center;\r\n
+        font-size: 0.72rem;\r\n
+        font-weight: 700;\r\n
+        letter-spacing: 0.06em;\r\n
+        text-transform: uppercase;\r\n
+        color: var(--text-muted);\r\n
+        padding: 0.4rem 0.25rem;\r\n
+    }\r\n
+\r\n
+    .dashboard-calendar-grid {\r\n
+        min-height: 360px;\r\n
+    }\r\n
+\r\n
+    .calendar-day {\r\n
+        display: flex;\r\n
+        flex-direction: column;\r\n
+        min-height: 96px;\r\n
+        padding: 0.55rem 0.45rem;\r\n
+        border: 1px solid var(--border-color);\r\n
+        border-radius: var(--radius-md);\r\n
+        background: rgba(255,255,255,0.82);\r\n
+        cursor: pointer;\r\n
+        transition: all var(--transition-speed);\r\n
+    }\r\n
+\r\n
+    .calendar-day:hover {\r\n
+        transform: translateY(-1px);\r\n
+        border-color: rgba(15, 118, 110, 0.35);\r\n
+        background: rgba(240, 253, 250, 0.8);\r\n
+        box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);\r\n
+    }\r\n
+\r\n
+    .calendar-day.disabled {\r\n
+        background: rgba(148, 163, 184, 0.05);\r\n
+        color: rgba(100, 116, 139, 0.7);\r\n
+        cursor: default;\r\n
+    }\r\n
+\r\n
+    .calendar-day.disabled:hover {\r\n
+        transform: none;\r\n
+        border-color: var(--border-color);\r\n
+        background: rgba(148, 163, 184, 0.05);\r\n
+        box-shadow: none;\r\n
+    }\r\n
+\r\n
+    .calendar-day.today {\r\n
+        border-color: rgba(15, 118, 110, 0.7);\r\n
+        background: linear-gradient(180deg, rgba(15, 118, 110, 0.08), rgba(255,255,255,0.9));\r\n
+    }\r\n
+\r\n
+    .calendar-day.is-selected {\r\n
+        border-color: rgba(113, 35, 54, 0.72);\r\n
+        background: rgba(254, 242, 242, 0.9);\r\n
+    }\r\n
+\r\n
+    .calendar-day-number {\r\n
+        display: flex;\r\n
+        align-items: center;\r\n
+        justify-content: center;\r\n
+        width: 28px;\r\n
+        height: 28px;\r\n
+        margin-bottom: 0.4rem;\r\n
+        border-radius: 50%;\r\n
+        font-size: 0.8rem;\r\n
+        font-weight: 700;\r\n
+        color: var(--navy-800);\r\n
+    }\r\n
+\r\n
+    .calendar-day.today .calendar-day-number {\r\n
+        background: var(--navy-800);\r\n
+        color: #fff;\r\n
+    }\r\n
+\r\n
+    .calendar-day.disabled .calendar-day-number {\r\n
+        color: rgba(100, 116, 139, 0.7);\r\n
+        background: transparent;\r\n
+    }\r\n
+\r\n
+    .calendar-events {\r\n
+        display: flex;\r\n
+        flex-direction: column;\r\n
+        gap: 0.2rem;\r\n
+        overflow: hidden;\r\n
+    }\r\n
+\r\n
+    .calendar-event-dot {\r\n
+        display: inline-block;\r\n
+        width: 7px;\r\n
+        height: 7px;\r\n
+        margin-right: 0.4rem;\r\n
+        border-radius: 50%;\r\n
+        vertical-align: middle;\r\n
+    }\r\n
+\r\n
+    .calendar-event-label {\r\n
+        display: flex;\r\n
+        align-items: center;\r\n
+        font-size: 0.64rem;\r\n
+        line-height: 1.3;\r\n
+        color: var(--navy-700);\r\n
+        overflow: hidden;\r\n
+        text-overflow: ellipsis;\r\n
+        white-space: nowrap;\r\n
+    }\r\n
+\r\n
+    .dashboard-calendar-loading,\r\n
+    .dashboard-calendar-error {\r\n
+        display: flex;\r\n
+        align-items: center;\r\n
+        justify-content: center;\r\n
+        gap: 0.75rem;\r\n
+        min-height: 90px;\r\n
+        color: var(--text-muted);\r\n
+        font-size: 0.9rem;\r\n
+        margin-top: 0.5rem;\r\n
+    }\r\n
+\r\n
+    .dashboard-calendar-error {\r\n
+        color: #b4232f;\r\n
+        background: rgba(190, 24, 93, 0.04);\r\n
+        border: 1px solid rgba(190, 24, 93, 0.18);\r\n
+        border-radius: var(--radius-md);\r\n
+        padding: 0.85rem 1rem;\r\n
+    }\r\n
+\r\n
+    .dashboard-calendar-spinner {\r\n
+        width: 24px;\r\n
+        height: 24px;\r\n
+        border: 2px solid rgba(15, 118, 110, 0.2);\r\n
+        border-top-color: rgba(15, 118, 110, 0.9);\r\n
+        border-radius: 50%;\r\n
+        animation: dashboard-spin 0.8s linear infinite;\r\n
+    }\r\n
+\r\n
+    @keyframes dashboard-spin {\r\n
+        to { transform: rotate(360deg); }\r\n
+    }\r\n
+\r\n
+    .dashboard-calendar-events {\r\n
+        display: block;\r\n
+    }\r\n
+\r\n
+    .dashboard-calendar-events-panel {\r\n
+        background: linear-gradient(180deg, rgba(255,255,255,0.96), #ffffff);\r\n
+        border: 1px solid var(--border-color);\r\n
+        border-radius: var(--radius-xl);\r\n
+        box-shadow: var(--shadow-card);\r\n
+        padding: 1.25rem;\r\n
+    }\r\n
+\r\n
+    .dashboard-calendar-events-title {\r\n
+        margin: 0 0 1rem;\r\n
+        font-size: 1.05rem;\r\n
+        font-weight: 800;\r\n
+        color: var(--navy-900);\r\n
+    }\r\n
+\r\n
+    .dashboard-calendar-events-list {\r\n
+        display: flex;\r\n
+        flex-direction: column;\r\n
+        gap: 0.85rem;\r\n
+    }\r\n
+\r\n
+    .calendar-event-item {\r\n
+        border-left: 4px solid var(--navy-600);\r\n
+        background: linear-gradient(135deg, rgba(248,250,252,0.9), rgba(255,255,255,0.95));\r\n
+        border-radius: 0 var(--radius-md) var(--radius-md) 0;\r\n
+        padding: 0.9rem 1rem;\r\n
+    }\r\n
+\r\n
+    .calendar-event-item-title {\r\n
+        margin: 0 0 0.4rem;\r\n
+        font-size: 0.95rem;\r\n
+        font-weight: 700;\r\n
+        color: var(--navy-900);\r\n
+    }\r\n
+\r\n
+    .calendar-event-item-meta {\r\n
+        margin: 0;\r\n
+        font-size: 0.8rem;\r\n
+        color: var(--text-muted);\r\n
+        line-height: 1.6;\r\n
+    }\r\n
+\r\n
+    .dashboard-calendar-empty {\r\n
+        display: flex;\r\n
+        flex-direction: column;\r\n
+        align-items: center;\r\n
+        justify-content: center;\r\n
+        gap: 0.6rem;\r\n
+        min-height: 140px;\r\n
+        color: var(--text-muted);\r\n
+        text-align: center;\r\n
+    }\r\n
+\r\n
+    .dashboard-calendar-empty svg {\r\n
+        width: 40px;\r\n
+        height: 40px;\r\n
+        color: rgba(148, 163, 184, 0.8);\r\n
+    }\r\n
+\r\n
+    .dashboard-calendar-empty p {\r\n
+        margin: 0;\r\n
+        font-size: 0.9rem;\r\n
+    }\r\n
+\r\n
+    .hidden {\r\n
+        display: none !important;\r\n
+    }\r\n
+\r\n
+    @media (max-width: 767.98px) {\r\n
+        .dashboard-calendar-shell,\r\n
+        .dashboard-calendar-events-panel {\r\n
+            padding: 1rem;\r\n
+        }\r\n
+\r\n
+        .dashboard-calendar-header {\r\n
+            flex-direction: column;\r\n
+            align-items: flex-start;\r\n
+        }\r\n
+\r\n
+        .dashboard-calendar-controls {\r\n
+            width: 100%;\r\n
+        }\r\n
+\r\n
+        .dashboard-calendar-btn-primary {\r\n
+            flex: 1 1 auto;\r\n
+        }\r\n
+\r\n
+        .calendar-day {\r\n
+            min-height: 82px;\r\n
+            padding: 0.4rem 0.35rem;\r\n
+        }\r\n
+    }\r\n
+\r\n
+    @media (max-width: 480px) {\r\n
+        .dashboard-calendar-weekdays div {\r\n
+            font-size: 0.62rem;\r\n
+            letter-spacing: 0.04em;\r\n
+        }\r\n
+\r\n
+        .calendar-day {\r\n
+            min-height: 68px;\r\n
+            padding: 0.35rem 0.28rem;\r\n
+        }\r\n
+\r\n
+        .calendar-day-number {\r\n
+            width: 22px;\r\n
+            height: 22px;\r\n
+            font-size: 0.72rem;\r\n
+        }\r\n
+\r\n
+        .calendar-event-label {\r\n
+            font-size: 0.58rem;\r\n
+        }\r\n
+    }\r\n
+</style>\r\n
+\r\n
+<script>\r\n
+    document.addEventListener('DOMContentLoaded', function() {\r\n
+        const todayBtn = document.getElementById('calendar-today-btn');\r\n
+        const prevBtn = document.getElementById('calendar-prev-btn');\r\n
+        const nextBtn = document.getElementById('calendar-next-btn');\r\n
+        const monthYearEl = document.getElementById('calendar-month-year');\r\n
+        const calendarGrid = document.getElementById('calendar-grid');\r\n
+        const loadingEl = document.getElementById('calendar-loading');\r\n
+        const errorEl = document.getElementById('calendar-error');\r\n
+        const dayEventsContainer = document.getElementById('calendar-day-events');\r\n
+        const eventsTitle = document.getElementById('calendar-events-title');\r\n
+        const eventsList = document.getElementById('calendar-events-list');\r\n
+        const noEventsEl = document.getElementById('calendar-no-events');\r\n
+\r\n
+        if (!todayBtn || !prevBtn || !nextBtn || !monthYearEl || !calendarGrid || !loadingEl || !errorEl || !dayEventsContainer || !eventsTitle || !eventsList || !noEventsEl) {\r\n
+            return;\r\n
+        }\r\n
+\r\n
+        let currentDate = new Date();\r\n
+        let allEvents = {};\r\n
+        let selectedDay = null;\r\n
+\r\n
+        const eventColors = {\r\n
+            class: '#0d3f38',\r\n
+            exam: '#dc2626',\r\n
+            assignment: '#f59e0b',\r\n
+            live: '#1a5c54',\r\n
+            fee: '#8b5cf6',\r\n
+            event: '#06b6d4',\r\n
+            notice: '#6366f1'\r\n
+        };\r\n
+\r\n
+        async function initCalendar() {\r\n
+            await fetchEvents();\r\n
+            renderCalendar();\r\n
+        }\r\n
+\r\n
+        async function fetchEvents() {\r\n
+            try {\r\n
+                loadingEl.classList.remove('hidden');\r\n
+                errorEl.classList.add('hidden');\r\n
+\r\n
+                const year = currentDate.getFullYear();\r\n
+                const month = currentDate.getMonth() + 1;\r\n
+                const response = await fetch(`http://localhost/api/calendar/events?year=${year}&month=${month}`);\r\n
+                const data = await response.json();\r\n
+\r\n
+                allEvents = {};\r\n
+                (data.events || []).forEach((event) => {\r\n
+                    const startDate = new Date(event.start);\r\n
+                    const dateStr = startDate.toISOString().split('T')[0];\r\n
+\r\n
+                    if (!allEvents[dateStr]) {\r\n
+                        allEvents[dateStr] = [];\r\n
+                    }\r\n
+\r\n
+                    allEvents[dateStr].push(event);\r\n
+                });\r\n
+\r\n
+                loadingEl.classList.add('hidden');\r\n
+            } catch (error) {\r\n
+                console.error('Error fetching events:', error);\r\n
+                loadingEl.classList.add('hidden');\r\n
+                errorEl.classList.remove('hidden');\r\n
+            }\r\n
+        }\r\n
+\r\n
+        function renderCalendar() {\r\n
+            const year = currentDate.getFullYear();\r\n
+            const month = currentDate.getMonth();\r\n
+\r\n
+            monthYearEl.textContent = new Date(year, month, 1).toLocaleDateString('en-US', { month: 'long', year: 'numeric' });\r\n
+            calendarGrid.innerHTML = '';\r\n
+\r\n
+            const firstDay = new Date(year, month, 1).getDay();\r\n
+            const daysInMonth = new Date(year, month + 1, 0).getDate();\r\n
+            const daysInPrevMonth = new Date(year, month, 0).getDate();\r\n
+            const today = new Date();\r\n
+            const isCurrentMonth = today.getFullYear() === year && today.getMonth() === month;\r\n
+            const todayDate = isCurrentMonth ? today.getDate() : null;\r\n
+\r\n
+            for (let i = firstDay - 1; i >= 0; i--) {\r\n
+                calendarGrid.appendChild(createDayElement(daysInPrevMonth - i, true));\r\n
+            }\r\n
+\r\n
+            for (let day = 1; day <= daysInMonth; day++) {\r\n
+                const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;\r\n
+                const isToday = isCurrentMonth && day === todayDate;\r\n
+                const hasEvents = !!(allEvents[dateStr] && allEvents[dateStr].length > 0);\r\n
+                calendarGrid.appendChild(createDayElement(day, false, isToday, hasEvents, dateStr));\r\n
+            }\r\n
+\r\n
+            const totalCells = calendarGrid.children.length;\r\n
+            const remainingCells = 42 - totalCells;\r\n
+            for (let day = 1; day <= remainingCells; day++) {\r\n
+                calendarGrid.appendChild(createDayElement(day, true));\r\n
+            }\r\n
+        }\r\n
+\r\n
+        function createDayElement(day, disabled = false, isToday = false, hasEvents = false, dateStr = null) {\r\n
+            const el = document.createElement('div');\r\n
+            el.className = 'calendar-day';\r\n
+            el.setAttribute('data-date', dateStr || '');\r\n
+\r\n
+            if (disabled) {\r\n
+                el.classList.add('disabled');\r\n
+            }\r\n
+\r\n
+            if (isToday) {\r\n
+                el.classList.add('today');\r\n
+            }\r\n
+\r\n
+            if (selectedDay && dateStr === selectedDay) {\r\n
+                el.classList.add('is-selected');\r\n
+            }\r\n
+\r\n
+            const dayNumberEl = document.createElement('div');\r\n
+            dayNumberEl.className = 'calendar-day-number';\r\n
+            dayNumberEl.textContent = day;\r\n
+            el.appendChild(dayNumberEl);\r\n
+\r\n
+            if (hasEvents && !disabled) {\r\n
+                const eventsEl = document.createElement('div');\r\n
+                eventsEl.className = 'calendar-events';\r\n
+\r\n
+                const events = allEvents[dateStr];\r\n
+                const uniqueTypes = [...new Set(events.map((event) => event.type))];\r\n
+\r\n
+                uniqueTypes.slice(0, 2).forEach((type) => {\r\n
+                    const eventEl = document.createElement('div');\r\n
+                    eventEl.className = 'calendar-event-label';\r\n
+                    const color = eventColors[type] || '#64748b';\r\n
+                    eventEl.innerHTML = `<span class="calendar-event-dot" style="background-color: ${color}"></span>${type}`;\r\n
+                    eventsEl.appendChild(eventEl);\r\n
+                });\r\n
+\r\n
+                if (uniqueTypes.length > 2) {\r\n
+                    const moreEl = document.createElement('div');\r\n
+                    moreEl.className = 'calendar-event-label';\r\n
+                    moreEl.textContent = `+${uniqueTypes.length - 2} more`;\r\n
+                    eventsEl.appendChild(moreEl);\r\n
+                }\r\n
+\r\n
+                el.appendChild(eventsEl);\r\n
+            }\r\n
+\r\n
+            if (!disabled) {\r\n
+                el.setAttribute('role', 'button');\r\n
+                el.setAttribute('tabindex', '0');\r\n
+                el.addEventListener('click', () => selectDay(dateStr));\r\n
+                el.addEventListener('keydown', (event) => {\r\n
+                    if (event.key === 'Enter' || event.key === ' ') {\r\n
+                        event.preventDefault();\r\n
+                        selectDay(dateStr);\r\n
+                    }\r\n
+                });\r\n
+            }\r\n
+\r\n
+            return el;\r\n
+        }\r\n
+\r\n
+        function selectDay(dateStr) {\r\n
+            selectedDay = dateStr;\r\n
+            const date = new Date(dateStr + 'T00:00:00');\r\n
+            const dayName = date.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });\r\n
+            eventsTitle.textContent = dayName;\r\n
+\r\n
+            const dayEvents = allEvents[dateStr] || [];\r\n
+\r\n
+            if (dayEvents.length === 0) {\r\n
+                eventsList.innerHTML = '';\r\n
+                noEventsEl.classList.remove('hidden');\r\n
+            } else {\r\n
+                noEventsEl.classList.add('hidden');\r\n
+                eventsList.innerHTML = dayEvents.map((event) => `\r\n
+                    <div class="calendar-event-item" style="border-color: ${eventColors[event.type] || '#64748b'}">\r\n
+                        <h4 class="calendar-event-item-title">${escapeHtml(event.title)}</h4>\r\n
+                        <p class="calendar-event-item-meta">Type: <span class="capitalize">${event.type}</span></p>\r\n
+                        ${event.start ? `<p class="calendar-event-item-meta">Time: ${formatTime(event.start)}</p>` : ''}\r\n
+                        ${event.end && event.type !== 'assignment' ? `<p class="calendar-event-item-meta">End: ${formatTime(event.end)}</p>` : ''}\r\n
+                    </div>\r\n
+                `).join('');\r\n
+            }\r\n
+\r\n
+            dayEventsContainer.classList.remove('hidden');\r\n
+            renderCalendar();\r\n
+        }\r\n
+\r\n
+        todayBtn.addEventListener('click', () => {\r\n
+            currentDate = new Date();\r\n
+            selectedDay = null;\r\n
+            dayEventsContainer.classList.add('hidden');\r\n
+            fetchEvents().then(() => renderCalendar());\r\n
+        });\r\n
+\r\n
+        prevBtn.addEventListener('click', () => {\r\n
+            currentDate.setMonth(currentDate.getMonth() - 1);\r\n
+            selectedDay = null;\r\n
+            dayEventsContainer.classList.add('hidden');\r\n
+            fetchEvents().then(() => renderCalendar());\r\n
+        });\r\n
+\r\n
+        nextBtn.addEventListener('click', () => {\r\n
+            currentDate.setMonth(currentDate.getMonth() + 1);\r\n
+            selectedDay = null;\r\n
+            dayEventsContainer.classList.add('hidden');\r\n
+            fetchEvents().then(() => renderCalendar());\r\n
+        });\r\n
+\r\n
+        function formatTime(dateStr) {\r\n
+            const date = new Date(dateStr);\r\n
+            return date.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });\r\n
+        }\r\n
+\r\n
+        function escapeHtml(text) {\r\n
+            const map = {\r\n
+                '&': '&amp;',\r\n
+                '<': '&lt;',\r\n
+                '>': '&gt;',\r\n
+                '"': '&quot;',\r\n
+                "'": '&#039;'\r\n
+            };\r\n
+            return String(text || '').replace(/[&<>"']/g, (char) => map[char]);\r\n
+        }\r\n
+\r\n
+        initCalendar();\r\n
+    });\r\n
+</script>\r\n
+\r\n
+                    </div>\r\n
+                </div>\r\n
+            </div>\r\n
+        </div>\r\n
+\r\n
+        <!-- Page Content -->\r\n
+        <main class="page-content">\r\n
+                                    <div class="container-fluid px-0">\r\n
+    <h1 class="h3 mb-1">Students</h1>\r\n
+    <p class="text-muted mb-4">Students belonging to programs in your assigned department.</p>\r\n
+    <div class="card custom-card"><div class="card-body">\r\n
+                    <form method="GET" class="row g-2 mb-3"><div class="col-md-6"><label class="visually-hidden" for="search">Search students</label><input id="search" name="search" value="Hidden" class="form-control" placeholder="Search by name or student number"></div><div class="col-md-2"><button class="btn btn-primary w-100" type="submit">Search</button></div></form>\r\n
+                <div class="table-responsive"><table class="table table-hover align-middle mb-0"><thead>\r\n
+             <tr><th>Student</th><th>Student number</th><th>Program</th><th>Status</th><th>Enrollments</th></tr>\r\n
+                    </thead><tbody>\r\n
+         <tr><td colspan="6" class="text-center text-muted py-4">No authoritative records are available.</td></tr>         </tbody></table></div>\r\n
+         <div class="mt-3"></div>     </div></div>\r\n
+</div>\r\n
+        </main>\r\n
+\r\n
+        <!-- Footer -->\r\n
+        <footer class="page-footer">\r\n
+            <span>&copy; 2026 Tima-Ade University. All rights reserved.</span>\r\n
+        </footer>\r\n
+    </div>\r\n
+\r\n
+    <!-- Bootstrap 5 JS -->\r\n
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>\r\n
+\r\n
+    <!-- jQuery -->\r\n
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>\r\n
+\r\n
+    <!-- DataTables -->\r\n
+    <script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>\r\n
+    <script src="https://cdn.datatables.net/1.13.8/js/dataTables.bootstrap5.min.js"></script>\r\n
+\r\n
+    <!-- Chart.js -->\r\n
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>\r\n
+\r\n
+    <!-- Custom JS -->\r\n
+    <script src="http://localhost/js/app.js"></script>\r\n
+\r\n
+    <script>\r\n
+        (function(){\r\n
+            'use strict';\r\n
+\r\n
+            // Confirmation for destructive actions: forms with data-confirm\r\n
+            document.addEventListener('click', function(e){\r\n
+                var btn = e.target.closest('button[data-confirm], a[data-confirm]');\r\n
+                if(btn){\r\n
+                    var message = btn.getAttribute('data-confirm');\r\n
+                    if(!confirm(message)){\r\n
+                        e.preventDefault();\r\n
+                        return false;\r\n
+                    }\r\n
+                }\r\n
+            });\r\n
+\r\n
+            document.addEventListener('submit', function(e){\r\n
+                var form = e.target;\r\n
+\r\n
+                // If the form has a data-confirm attribute, confirm before submit\r\n
+                if(form.hasAttribute('data-confirm')){\r\n
+                    var message = form.getAttribute('data-confirm');\r\n
+                    if(!confirm(message)){\r\n
+                        e.preventDefault();\r\n
+                        return false;\r\n
+                    }\r\n
+                }\r\n
+\r\n
+                // Client-side validation for forms with class needs-validation (Bootstrap pattern)\r\n
+                if(form.classList && form.classList.contains('needs-validation')){\r\n
+                    if(!form.checkValidity()){\r\n
+                        e.preventDefault();\r\n
+                        e.stopPropagation();\r\n
+                        form.classList.add('was-validated');\r\n
+                        // Focus first invalid element\r\n
+                        var invalid = form.querySelector(':invalid');\r\n
+                        if(invalid) invalid.focus();\r\n
+                        return false;\r\n
+                    }\r\n
+\r\n
+                    // Show loading state for valid submission\r\n
+                    var submitBtn = form.querySelector('button[type="submit"]');\r\n
+                    if(submitBtn){\r\n
+                        var original = submitBtn.innerHTML;\r\n
+                        var loading = submitBtn.getAttribute('data-loading-text') || 'Saving...';\r\n
+                        submitBtn.innerHTML = loading;\r\n
+                        submitBtn.disabled = true;\r\n
+                        form.classList.add('loading');\r\n
+\r\n
+                        // Re-enable after 10s as a fallback\r\n
+                        setTimeout(function(){\r\n
+                            // Only reset if still showing loading\r\n
+                            if(submitBtn && submitBtn.disabled){\r\n
+                                submitBtn.disabled = false;\r\n
+                                submitBtn.innerHTML = original;\r\n
+                                form.classList.remove('loading');\r\n
+                            }\r\n
+                        }, 10000);\r\n
+                    }\r\n
+                }\r\n
+            }, true);\r\n
+\r\n
+            // Initialize DataTables for tables with class .datatable\r\n
+            function initDataTables(){\r\n
+                if(window.jQuery && $.fn.dataTable){\r\n
+                    $('.datatable').each(function(){\r\n
+                        if(!$.fn.dataTable.isDataTable(this)){\r\n
+                            $(this).DataTable({\r\n
+                                responsive: true,\r\n
+                                lengthChange: true,\r\n
+                                pageLength: 10,\r\n
+                                columnDefs: [{ orderable: false, targets: -1 }],\r\n
+                                language: { search: "Filter:", lengthMenu: "Show _MENU_ entries" }\r\n
+                            });\r\n
+                        }\r\n
+                    });\r\n
+                }\r\n
+            }\r\n
+\r\n
+            // Run once DOM is ready\r\n
+            if(document.readyState === 'loading'){\r\n
+                document.addEventListener('DOMContentLoaded', initDataTables);\r\n
+            } else {\r\n
+                initDataTables();\r\n
+            }\r\n
+\r\n
+            // Accessible skip link focus fix (if present)\r\n
+            var skip = document.getElementById('skipToContent');\r\n
+            if(skip){\r\n
+                skip.addEventListener('click', function(e){\r\n
+                    var target = document.getElementById('mainWrapper');\r\n
+                    if(target){ target.setAttribute('tabindex', '-1'); target.focus(); }\r\n
+                });\r\n
+            }\r\n
+\r\n
+        })();\r\n
+    </script>\r\n
+\r\n
+    </body>\r\n
+</html>\r\n
+
+
+  Not to contain: Hidden
+
+  at tests\Feature\DepartmentHeadDashboardTest.php:98
+     94▕             $response = $this->actingAs($head)->get(route($route));
+     95▕             $response->assertOk()->assertSee($expected)->assertDontSee('Hidden History')->assertDontSee('Hidden Program')->assertDontSee('Hidden Course');
+     96▕         }
+     97▕ 
+  ➜  98▕         $this->actingAs($head)->get(route('department-head.students', ['search' => 'Hidden']))->assertOk()->assertDontSee('Hidden');
+     99▕         $this->actingAs(User::factory()->create(['role_id' => Role::where('slug', Role::STAFF)->value('id')]))->get(route('department-head.programs'))->assertForbidden();
+    100▕     }
+    101▕ }
+    102▕
+
+
+  Tests:    1 failed, 2 passed (55 assertions)
+  Duration: 30.39s
+

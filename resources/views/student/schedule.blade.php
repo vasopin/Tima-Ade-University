@@ -1,0 +1,7 @@
+@extends('layouts.app')
+
+@section('title', 'Class Schedule')
+
+@section('content')
+<div class="container-fluid px-4 py-4 bg-light min-vh-100"><div class="mb-4"><p class="text-uppercase text-muted small fw-semibold mb-1">Student portal</p><h1 class="h2 mb-1">Class Schedule</h1><p class="text-muted mb-0">{{ $student->schoolClass->name ?? 'Class' }}{{ $student->section ? ' · ' . $student->section->name : '' }}</p></div><section class="card border-0 shadow-sm" aria-labelledby="schedule-heading"><div class="card-header bg-white border-bottom"><h2 id="schedule-heading" class="h5 mb-0">Weekly timetable</h2></div><div class="card-body"><div class="row g-3">@forelse($schedule as $day => $slots)<div class="col-12 col-md-6 col-xl-4"><article class="border rounded h-100"><h3 class="h6 bg-light border-bottom p-3 mb-0">{{ $day }}</h3><div class="p-3">@foreach($slots as $slot)<div class="border-bottom py-2"><strong>{{ $slot->subject->name ?? 'Course' }}</strong><span class="d-block small text-muted">{{ $slot->start_time?->format('g:i A') ?? 'Time not set' }} - {{ $slot->end_time?->format('g:i A') ?? 'Time not set' }}</span><span class="d-block small text-muted">Room: {{ $slot->room_number ?? 'Not assigned' }} · {{ $slot->teacher->user->name ?? 'Instructor not assigned' }}</span></div>@endforeach</div></article></div>@empty<div class="col-12 text-center text-muted py-5">No timetable entries are currently available.</div>@endforelse</div></div></section></div>
+@endsection

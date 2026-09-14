@@ -1,0 +1,6 @@
+@extends('layouts.app')
+@section('title', 'LMS Discussions')
+@section('content')
+<div class="container-fluid py-4"><div class="d-flex justify-content-between mb-4"><div><span class="eyebrow-label">Teacher LMS</span><h2 class="dashboard-section-header">Discussions</h2></div><a href="{{ route('teacher.discussions.create') }}" class="btn btn-primary">New discussion</a></div>
+<div class="card custom-card"><div class="table-responsive"><table class="table align-middle mb-0"><thead><tr><th>Topic</th><th>Scope</th><th>Status</th><th></th></tr></thead><tbody>@forelse($discussions as $discussion)<tr><td>{{ $discussion->title }}</td><td>{{ $discussion->courseSection?->course?->name ?? $discussion->subject?->name ?? 'Class discussion' }}</td><td class="text-capitalize">{{ $discussion->status }}</td><td><a href="{{ route('teacher.discussions.show', $discussion) }}" class="btn btn-sm btn-outline-primary">Open</a>@if($discussion->status === 'published')<form class="d-inline" method="POST" action="{{ route('teacher.discussions.close', $discussion) }}">@csrf<button class="btn btn-sm btn-outline-danger">Close</button></form>@endif</td></tr>@empty<tr><td colspan="4" class="text-center py-5 text-muted">No discussions yet.</td></tr>@endforelse</tbody></table></div><div class="card-footer">{{ $discussions->links() }}</div></div></div>
+@endsection
